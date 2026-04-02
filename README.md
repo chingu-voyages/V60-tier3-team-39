@@ -38,6 +38,5 @@ coding!
 - Bryan Hoyem: [GitHub](https://github.com/bhoyem) / [Linkedin](https://linkedin.com/in/bryanhoyem)
 - Rika Miyata: [GitHub](https://github.com/Tayrika) / [LinkedIn](https://www.linkedin.com/in/rika-miyata-4bab99243/)
 - Ekaterina Kushnir: [GitHub](https://github.com/katiaku) / [LinkedIn](https://www.linkedin.com/in/ekaterina-kushnir-mikhaylova/)
+- Ruben Aguilar: [GitHub](https://github.com/rubenaguilardev) / [LinkedIn](https://linkedin.com/in/rubenaguilar-)
 
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
