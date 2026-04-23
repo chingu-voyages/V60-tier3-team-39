@@ -6,19 +6,19 @@ import Calendar from "react-calendar";
 
 export function MyCalendar() {
   return (
-    <div className="flex justify-center w-full p-4 outline-blue-500 outline-solid outline-2">
+    <div className="flex justify-center p-4 outline-blue-500 outline-solid outline-2">
       <Calendar calendarType="gregory"/>
     </div>
   );
 }
 
-export function MyDayPicker() {
-  return (
-    <div className = "p-4 outline-blue-500 outline-solid outline-2 ">
-      <DayPicker />
-    </div>
-  )
-}
+// export function MyDayPicker() {
+//   return (
+//     <div className = "p-4 outline-blue-500 outline-solid outline-2 ">
+//       <DayPicker />
+//     </div>
+//   )
+// }
 
 const Activity = () => {
   return (

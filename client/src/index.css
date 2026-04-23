@@ -48,6 +48,8 @@
 
 .react-calendar {
   @apply rounded-[16px];
+  /* height:auto;
+  width:auto; */
 }
 /* .react-calendar__navigation{
     @apply flex justify-between items-center mb-2
