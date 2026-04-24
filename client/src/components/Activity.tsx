@@ -6,7 +6,7 @@ import Calendar from "react-calendar";
 
 export function MyCalendar() {
   return (
-    <div className="flex justify-center p-4 outline-blue-500 outline-solid outline-2">
+    <div className="flex justify-center p-4 border-blue-500 border-solid border-b-2">
       <Calendar calendarType="gregory" />
     </div>
   );
@@ -33,13 +33,16 @@ const Activity = () => {
   return (
     <>
       <div className="page-container flex justify-center w-full gap-4">
-        <div className="activities-list w-[60%] ml-[40px] mr-[16px] my-[40px] outline-red-500 outline-solid outline-2">
+        <div
+          id="left-side"
+          className="activities-list w-[60%] ml-[40px] mr-[16px] my-[40px] border-[#D7DEE4] border-solid border-1 rounded-3xl"
+        >
           <div className="h-[91px] flex items-center ml-8">
             <h3>Thursday, April 23</h3>
           </div>
           <div
             id="li-connections-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="li-connections-label"
@@ -77,7 +80,7 @@ const Activity = () => {
           </div>
           <div
             id="interviews-scheduled-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="interviews-scheduled-label"
@@ -115,7 +118,7 @@ const Activity = () => {
           </div>
           <div
             id="applications-submitted-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="applications-submitted-label"
@@ -153,7 +156,7 @@ const Activity = () => {
           </div>
           <div
             id="outreach-emails-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="outreach-emails-label"
@@ -191,7 +194,7 @@ const Activity = () => {
           </div>
           <div
             id="meetups-events-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="meetups-events-label"
@@ -229,19 +232,19 @@ const Activity = () => {
           </div>
           <div
             id="extra-activity-one-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="extra-activity-one-label"
               className="flex items-center ml-10 w-[80%]"
             >
               <div className="bg-[#C6E3E1] w-[32px] h-[32px] flex justify-center items-center rounded-md h-1rem w-3rem">
-                {/* <img
-                  src="/images/li-connections.png"
-                  alt="linked in connections icon"
-                /> */}
+                <img
+                  src="/images/envelope.png"
+                  alt="envelope icon"
+                />
               </div>
-              <p className="pl-4 font-medium">Add an activity</p>
+              <p className="pl-4 font-medium">LinkedIn Messages Sent</p>
             </div>
             <div
               id="extra-activity-one-controls"
@@ -267,7 +270,7 @@ const Activity = () => {
           </div>
           <div
             id="extra-activity-two-section"
-            className="flex w-auto h-[80px] mx-10 border-b-2 border-blue-700"
+            className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
           >
             <div
               id="extra-activity-two-label"
@@ -303,15 +306,31 @@ const Activity = () => {
               </button>
             </div>
           </div>
+          <div className="flex justify-end mt-auto items-bottom outline-2 outline-solid">
+            <button className="border-1 border-gray-400 rounded-md">+ Add Field</button>
+            <button className="border-1 border-gray-400 rounded-md bg-[#0D3E3B] text-white">Save and Generate Report</button>
+          </div>
         </div>
-        <div className="right-side-tiles w-[40%] my-[40px] ml-[16px] mr-[40px] flex flex-col gap-3 outlinel-green-500 outline-solid outline-2">
+        <div className="right-side-tiles w-[40%] my-[40px] ml-[16px] mr-[40px] flex flex-col gap-3 border-[#D7DEE4] border-solid border-1 rounded-3xl">
           <MyCalendar />
-          <h3 className="m-2 outline-blue-500 outline-solid outline-2">
-            streak counter
-          </h3>
-          <h3 className="m-2 outline-blue-500 outline-solid outline-2">
-            today's summary
-          </h3>
+          <div className="outline-orange-700 outline-solid outline-1 rounded-2xl flex flex-col items-center h-[50%] justify-center">
+            <div id="counter-area" className="flex flex-col items-left w-full">
+              <h3 className="m-2">
+                🔥Active Streak - 9 days
+              </h3>
+              <div className="border-1 border-gray-400 border-solid rounded-lg w-full h-40"></div>
+
+            </div>
+            <div id="summary-area" className="flex flex-col items-left w-full">
+              <h3 className="m-2">
+                Today's Summary
+              </h3>
+              <div className="flex justify-around border-1 border-gray-400 border-solid rounded-lg w-full h-40">
+                <p>Total actions 22</p>
+                <p>Applications 3</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
