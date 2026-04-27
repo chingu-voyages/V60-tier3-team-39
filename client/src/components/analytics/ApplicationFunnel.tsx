@@ -31,7 +31,7 @@ const ApplicationFunnel = ({ data }: ApplicationFunnelProps) => {
                   style={{ width: `${item.percentage}%`, backgroundColor: color }}
                 />
               </div>
-              <span className="w-6 text-sm font-semibold text-gray-700 text-right shrink-0">{item.count}</span>
+              <span className="w-6 text-sm font-semibold text-right shrink-0" style={{ color }}>{item.count}</span>
               <span className="w-10 text-sm text-gray-400 text-right shrink-0">{item.percentage}%</span>
             </div>
           )
