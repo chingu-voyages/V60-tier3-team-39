@@ -1,4 +1,11 @@
-export default function DailyCounter(activityCount: number) {
+interface DailyCounterProps {
+  activityCount: number;
+}
+
+export default function DailyCounter({ activityCount }: DailyCounterProps) {
+
+    console.log(`in DailyCounter, activity count: ${activityCount}`)
+
   return (
     <>
       <div
@@ -203,44 +210,6 @@ export default function DailyCounter(activityCount: number) {
         </div>
         <div
           id="extra-activity-one-controls"
-          className="flex w-[20%] justify-around items-center"
-        >
-          <div className="flex w-[144px] h-[32px] justify-around items-center outline-gray-400 rounded-md outline-solid outline-1">
-            <button>
-              <img src="../../images/minus.png" alt="-" className="" />
-            </button>
-            <div>6</div>
-            <button>
-              <img src="../../images/plus.png" alt="+" className="" />
-            </button>
-          </div>
-          <button className=" w-[32px] h-[32px] flex justify-center items-center outline-gray-400 rounded-md outline-solid outline-1">
-            <img
-              src="/images/pencil.png"
-              alt="edit"
-              className="w-[60%] h-[60%]"
-            />
-          </button>
-        </div>
-      </div>
-      <div
-        id="extra-activity-two-section"
-        className="flex w-auto h-[80px] mx-10 border-b-2 border-[#D7DEE4]"
-      >
-        <div
-          id="extra-activity-two-label"
-          className="flex items-center ml-10 w-[80%]"
-        >
-          <div className="bg-icon-bg w-[32px] h-[32px] flex justify-center items-center rounded-md h-1rem w-3rem">
-            {/* <img
-                  src="/images/li-connections.png"
-                  alt="linked in connections icon"
-                /> */}
-          </div>
-          <p className="pl-4 font-medium">Add an activity</p>
-        </div>
-        <div
-          id="extra-activity-two-controls"
           className="flex w-[20%] justify-around items-center"
         >
           <div className="flex w-[144px] h-[32px] justify-around items-center outline-gray-400 rounded-md outline-solid outline-1">

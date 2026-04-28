@@ -1,31 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
 @theme {
-
   /* text */
-  --color-primary: #0D3E3B;
+  --color-primary: #0d3e3b;
   --color-foreground: #242424;
-  --color-muted: #365B78;
+  --color-muted: #365b78;
   /* for borders and underlines - muted at 20% */
 
   /* background */
-  --color-background: #F8F8F8;
-  --card-bg: #FFFFFF;
+  --color-background: #f8f8f8;
+  --card-bg: #ffffff;
 
   /* activity icons */
-  --color-icon-bg: #C6E3E1;
+  --color-icon-bg: #c6e3e1;
 
   /* status */
-  --color-interv: #1E40AF;
-  --color-interv-bg: #DBEAFE;
-  --color-applied: #3A30A5;
-  --color-applied-bg: #E4E0FF;
-  --color-offer: #00BF63;
-  --color-offer-bg: #D2FFEF;
+  --color-interv: #1e40af;
+  --color-interv-bg: #dbeafe;
+  --color-applied: #3a30a5;
+  --color-applied-bg: #e4e0ff;
+  --color-offer: #00bf63;
+  --color-offer-bg: #d2ffef;
   --color-reject: #941919;
-  --color-reject-bg: #FEE3E3;
-  --color-inprog: #DA8011;
+  --color-reject-bg: #fee3e3;
+  --color-inprog: #da8011;
 }
 
 @layer base {
@@ -88,7 +87,7 @@
   @apply bg-[#C6E3E1];
 }
 
-.react-calendar__tile--active:enabled:hover, 
+.react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
   @apply bg-[#0D3F3B];
 }
@@ -96,4 +95,32 @@
 .react-calendar__tile--active {
   @apply bg-[#0D3F3B];
   @apply text-white;
+}
+
+/**** overrides for the day-picker appearance ****/
+
+.rdp-root {
+  justify-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  --rdp-accent-color: var(--color-primary);
+  --rdp-day-height: clamp(22px, 3vw, 60px);
+  --rdp-day-width: clamp(22px, 3vw, 60px);
+  --rdp-day-button-height: var(--rdp-day-height);
+  --rdp-day-button-width: var(--rdp-day-width);
+  --rdp-day_button-border-radius: 0.5rem;
+  --rdp-today-border-radius: var(--rdp-day_button-border-radius);
+}
+
+.rdp-selected .rdp-day_button {
+  background: var(--color-icon-bg);
+  color: var(--color-primary);
+  border-radius: var(--rdp-day_button-border-radius);
+  border: none;
+}
+
+.rdp-today .rdp-day_button {
+  border: 2px solid var(--color-primary);
+  border-radius: var(--rdp-today-border-radius);
 }
