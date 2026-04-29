@@ -16,6 +16,7 @@
     "react-day-picker": "^9.14.0",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.14.0",
+    "recharts": "^3.8.1",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {

@@ -1,0 +1,109 @@
+{
+  "user": {
+    "userId": "1",
+    "name": "John Doe"
+  },
+  "activeStreak": 8,
+  "applicationStats": {
+    "applied": 12,
+    "interview": 5,
+    "offer": 2,
+    "rejected": 13
+  },
+  "recentActivities": {
+    "linkedInConnectionRequests": 6,
+    "linkedInMessagesSent": 5,
+    "applicationSubmitted": 3,
+    "outreachEmailsSent": 7,
+    "meetupsEventsAttended": 1
+  },
+  "analytics": {
+    "totalApplied": 34,
+    "totalAppliedMonthly": 12,
+    "interviews": 8,
+    "interviewRate": 23.5,
+    "offers": 2,
+    "offerRate": 25,
+    "avgResponseDays": 6.4,
+    "weeklyApplications": [
+      { "week": "Week 1", "count": 5 },
+      { "week": "Week 2", "count": 10 },
+      { "week": "Week 3", "count": 9 },
+      { "week": "Week 4", "count": 14 },
+      { "week": "Week 5", "count": 6 },
+      { "week": "Week 6", "count": 3 }
+    ],
+    "funnel": [
+      { "stage": "Applied", "count": 34, "percentage": 100 },
+      { "stage": "Responded", "count": 14, "percentage": 41 },
+      { "stage": "Interview", "count": 8, "percentage": 24 },
+      { "stage": "Offer", "count": 2, "percentage": 6 }
+    ],
+    "statusBreakdown": {
+      "applied": 12,
+      "interview": 5,
+      "offer": 2,
+      "rejected": 13
+    },
+    "responseTimeTrend": [
+      { "week": "Week 1", "days": 3.0 },
+      { "week": "Week 2", "days": 4.5 },
+      { "week": "Week 3", "days": 5.2 },
+      { "week": "Week 4", "days": 4.8 },
+      { "week": "Week 5", "days": 6.2 },
+      { "week": "Week 6", "days": 7.8 }
+    ]
+  },
+  "applications": [
+    {
+      "id": 1,
+      "company": "Stripe",
+      "role": "Product Designer",
+      "workType": "Remote",
+      "location": "San Francisco, CA",
+      "status": "Interview",
+      "appliedDate": "Mar 28",
+      "salaryRange": "$68k~75k"
+    },
+    {
+      "id": 2,
+      "company": "Notion",
+      "role": "UX Designer",
+      "workType": "Hybrid",
+      "location": "Seattle, WA",
+      "status": "Applied",
+      "appliedDate": "Mar 26",
+      "salaryRange": "$66k~72k"
+    },
+    {
+      "id": 3,
+      "company": "Linear",
+      "role": "Frontend Engineer",
+      "workType": "Remote",
+      "location": "Austin, TX",
+      "status": "Offer",
+      "appliedDate": "Mar 20",
+      "salaryRange": "$83k~88k"
+    },
+    {
+      "id": 4,
+      "company": "Figma",
+      "role": "Design Ops",
+      "workType": "On Site",
+      "location": "New York, NY",
+      "status": "Rejected",
+      "appliedDate": "Mar 18",
+      "salaryRange": "$75k~80k"
+    },
+    {
+      "id": 5,
+      "company": "Vercel",
+      "role": "Staff Designer",
+      "workType": "Remote",
+      "location": "Chicago, IL",
+      "status": "Interview",
+      "appliedDate": "Mar 17",
+      "salaryRange": "$78k~86k"
+    }
+  ]
+}

@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './layout/Layout'
 import Dashboard from './components/Dashboard'
 import Applications from './components/Applications'
-import Analytics from './components/Analytics'
 import Activity from './components/Activity/Activity'
+import Analytics from './components/analytics/Analytics'
 
 const App = () => {
   return (
