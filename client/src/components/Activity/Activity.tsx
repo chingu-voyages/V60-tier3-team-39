@@ -61,7 +61,10 @@ const Activity = () => {
             </button>
           </div>
         </div>
-        <div id="right-side" className="w-full md:w-[40%] min-w-[350px] flex flex-col gap-6 h-full">
+        <div
+          id="right-side"
+          className="w-full md:w-[40%] min-w-[350px] flex flex-col gap-6 h-full"
+        >
           <div
             id="calendar-area"
             className="flex-3 w-full flex items-stretch justify-stretch shadow-sm rounded-2xl bg-white"
@@ -77,13 +80,13 @@ const Activity = () => {
                 🔥Active Streak - {activeStreak} days
               </h3>
               <div className="w-full mt-4 px-5">
-                <StreakSquares activeStreak={activeStreak}/>
+                <StreakSquares activeStreak={activeStreak} />
+              </div>
+              <div className="flex justify-end pr-5">
+                <p>Log activity daily to maintain your streak</p>
               </div>
             </div>
-            <div
-              id="summary-area"
-              className="flex-2 flex flex-col w-full mb-5"
-            >
+            <div id="summary-area" className="flex-2 flex flex-col w-full mb-5">
               <h3 className="m-2 font-bold">Today's Summary</h3>
               <div className="flex justify-around w-full pt-3">
                 <p>

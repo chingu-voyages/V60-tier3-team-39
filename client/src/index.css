@@ -37,30 +37,13 @@
 
 /**** overrides for the calendar appearance ****/
 
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
-/* .react-calendar__calendar-type {
-  @apply gregory;
-} */
-
-.react-calendar {
+/* .react-calendar {
   @apply rounded-[16px];
-  /* height:auto;
-  width:auto; */
 }
-/* .react-calendar__navigation{
-    @apply flex justify-between items-center mb-2
-  } */
 
 .react-calendar__navigation button {
   @apply text-gray-700 hover:text-black p-2 rounded;
 }
-
-/* .react-calendar__month-view__weekdays__weekday {
-    @apply text-gray-500 text-sm font-medium pb-1;
-  } */
 
 .react-calendar__tile {
   @apply text-center p-2 rounded-lg hover:bg-gray-100 transition;
@@ -95,7 +78,7 @@
 .react-calendar__tile--active {
   @apply bg-[#0D3F3B];
   @apply text-white;
-}
+} */
 
 /**** overrides for the day-picker appearance ****/
 
