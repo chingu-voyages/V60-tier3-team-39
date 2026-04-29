@@ -105,5 +105,13 @@
       "appliedDate": "Mar 17",
       "salaryRange": "$78k~86k"
     }
+  ],
+  "activities": [
+      {
+        "id": "linked-in-connections",
+        "activityName": "LinkedIn Connection Request",
+        "count": 6,
+        "icon": "/images/li-connections.png"
+      }
   ]
 }

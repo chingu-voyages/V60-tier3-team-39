@@ -13,7 +13,6 @@ export function MyDatePicker() {
       captionLayout="dropdown"
       showOutsideDays
       animate
-      mode="single"
       selected={selected}
       onSelect={setSelected}
       footer={

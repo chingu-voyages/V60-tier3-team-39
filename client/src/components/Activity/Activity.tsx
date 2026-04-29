@@ -1,8 +1,9 @@
+import data from "../../data/data.json";
 // import { MyCalendar } from "./CalendarTile";
 import { MyDatePicker } from "./CalendarTile";
 import DailyCounter from "./DailyCounter";
 import StreakSquares from "./Streak";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import "react-calendar/dist/Calendar.css";
 // import { DayPicker } from "react-day-picker";
 // import "react-day-picker/dist/style.css";
@@ -16,14 +17,14 @@ import { useState, useEffect } from "react";
 //   )
 // }
 
-export function clickCounter(activityCount: number, buttonPressed: string) {
-  if (buttonPressed === "minus") {
-    return activityCount - 1;
-  } else if (buttonPressed === "plus") {
-    return activityCount + 1;
-  }
-  return activityCount;
-}
+// export function clickCounter(activityCount: number, buttonPressed: string) {
+//   if (buttonPressed === "minus") {
+//     return activityCount - 1;
+//   } else if (buttonPressed === "plus") {
+//     return activityCount + 1;
+//   }
+//   return activityCount;
+// }
 
 const todaysActions = 18;
 const applications = 3;
@@ -31,7 +32,26 @@ const totalActions = 21;
 const activeStreak = 9;
 
 const Activity = () => {
-  const [activityCount, setActivityCount] = useState(0);
+  const [activities, setActivities] = useState([
+    {
+      id: crypto.randomUUID(),
+      activityName: "New Activity",
+      count: 0,
+      icon: "/images/li-connections.png",
+    },
+  ]);
+
+  function handleAddActivity() {
+    setActivities((prev) => [
+      ...prev,
+      {
+        id: crypto.randomUUID(),
+        activityName: "New Activity",
+        count: 0,
+        icon: "/images/li-connections.png",
+      },
+    ]);
+  }
 
   return (
     <>
@@ -46,13 +66,11 @@ const Activity = () => {
           <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
             <h3 className="font-bold text-m">Thursday, April 23</h3>
           </div>
-          <DailyCounter activityCount={activityCount} />
+          <DailyCounter activities={activities} />
           <div className="flex justify-end pr-5 mt-auto mb-5 items-bottom">
             <button
               className="border border-gray-400 rounded-md p-3 mx-5 text-sm"
-              onClick={() =>
-                setActivityCount(clickCounter(activityCount, "plus"))
-              }
+              onClick={handleAddActivity}
             >
               + Add Field
             </button>
