@@ -51,12 +51,12 @@ const Footer = () => {
           className="w-full h-full object-cover object-top"
         />
       </div>
-      <div className='relative px-6 py-8 md:px-8 lg:p-10 max-w-7xl mx-auto space-y-6'>
+      <div className='relative px-4 sm:px-6 py-8 md:px-8 lg:p-10 max-w-7xl mx-auto space-y-6'>
         <div className='flex flex-col md:flex-row items-center gap-2'>
           <img src={logo} alt="Stemly logo" className='w-12 md:w-13 lg:w-14' />
           <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold gradient-l text-transparent bg-clip-text bg-linear-to-r from-primary to-brand'>STEMLY</h2>
         </div>
-        <div className='flex flex-row justify-between items-center'>
+        <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-6 sm:space-y-0'>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -69,7 +69,7 @@ const Footer = () => {
               <span className='text-muted font-semibold md:text-lg lg:text-xl group-hover:text-brand'>Github Repository</span>
             </div>
           </a>
-          <div className='flex flex-col md:flex-row md:items-center gap-1 md:gap-2'>
+          <div className='flex sm:flex-col md:flex-row md:items-center gap-2 sm:gap-1 md:gap-2'>
             <span className='text:lg lg:text-xl text-muted font-semibold'>Tech Stack</span>
             <div className='flex items-center gap-2 text-3xl md:text-4xl lg:text-5xl'>
               <BsTypescript color='#007ACC' />
