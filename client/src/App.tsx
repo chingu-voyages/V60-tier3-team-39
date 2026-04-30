@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './layout/Layout'
-import Dashboard from './components/Dashboard'
-import Applications from './components/Applications'
-import Analytics from './components/analytics/Analytics'
-import Activity from './components/Activity'
+import Dashboard from './sections/Dashboard'
+import Applications from './sections/Applications'
+import Analytics from './sections/analytics/Analytics'
+import Activity from './sections/Activity'
 
 const App = () => {
   return (
