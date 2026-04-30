@@ -35,22 +35,26 @@ export default function DailyCounter({
                     onClick={() => onIncrementActivity(activity.id, -1)}
                     className="h-full aspect-square flex items-center justify-center"
                   >
-                    <img src="../../images/minus.png" alt="-" className="" />
+                    <span className="material-icons text-primary">remove</span>
+                    {/* <FontAwesomeIcon
+                      icon={faMinus}
+                      className="w-full aspect-square text-primary"
+                    /> */}
                   </button>
                   <div>{activity.count}</div>
                   <button
                     onClick={() => onIncrementActivity(activity.id, 1)}
                     className="h-full aspect-square flex items-center justify-center"
                   >
-                    <img src="../../images/plus.png" alt="+" className="" />
+                    <span className="material-icons text-primary">add</span>
+                    {/* <FontAwesomeIcon
+                      icon={faPlus}
+                      className="h-3/4 w-3/4 text-primary"
+                    /> */}
                   </button>
                 </div>
                 <button className=" h-8 aspect-square flex justify-center items-center outline-gray-400 rounded-md outline-solid outline-1">
-                  <img
-                    src="/images/pencil.png"
-                    alt="edit"
-                    className="w-[60%] h-[60%]"
-                  />
+                  <span className="material-icons text-primary">edit</span>
                 </button>
               </div>
             </div>
