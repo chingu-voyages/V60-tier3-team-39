@@ -107,11 +107,49 @@
     }
   ],
   "activities": [
-      {
-        "id": "linked-in-connections",
-        "activityName": "LinkedIn Connection Request",
-        "count": 6,
-        "icon": "/images/li-connections.png"
-      }
+    {
+      "id": "linked-in-connections",
+      "date": "2026-04-30",
+      "activityName": "LinkedIn Connection Request",
+      "count": 6,
+      "icon": "/images/li-connections.png"
+    },
+    {
+      "id": "interview-scheduled",
+      "date": "2026-04-30",
+      "activityName": "Interview Scheduled",
+      "count": 1,
+      "icon": "/images/li-connections.png"
+    },
+
+    {
+      "id": "applications-submitted",
+      "date": "2026-04-30",
+      "activityName": "Applications Submitted",
+      "count": 3,
+      "icon": "/images/li-connections.png"
+    },
+
+    {
+      "id": "outreach-emails-sent",
+      "date": "2026-04-30",
+      "activityName": "Outreach Emails Sent",
+      "count": 7,
+      "icon": "/images/li-connections.png"
+    },
+    {
+      "id": "meetups-events-attended",
+      "date": "2026-04-29",
+      "activityName": "Meetups/Events Attended",
+      "count": 2,
+      "icon": "/images/li-connections.png"
+    },
+    {
+      "id": "linked-in-messages-sent",
+      "date": "2026-04-29",
+      "activityName": "LinkedIn Messages Sent",
+      "count": 5,
+      "icon": "/images/li-connections.png"
+    }
   ]
 }

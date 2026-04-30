@@ -35,52 +35,8 @@
   }
 }
 
-/**** overrides for the calendar appearance ****/
 
-/* .react-calendar {
-  @apply rounded-[16px];
-}
-
-.react-calendar__navigation button {
-  @apply text-gray-700 hover:text-black p-2 rounded;
-}
-
-.react-calendar__tile {
-  @apply text-center p-2 rounded-lg hover:bg-gray-100 transition;
-}
-
-.react-calendar__tile--active {
-  @apply bg-[#0D3F3B] text-white hover:bg-green-700;
-}
-
-.react-calendar__tile--range {
-  @apply bg-[#0D3F3B] text-white hover:bg-green-700;
-}
-
-.react-calendar__tile--rangeStart,
-.react-calendar__tile--rangeEnd {
-  @apply bg-[#0D3F3B] text-white hover:bg-green-700;
-}
-
-.react-calendar__tile--now {
-  @apply bg-[#D2FFEF] text-[#0D3F3B] font-semibold;
-}
-
-.react-calendar__tile:enabled:hover {
-  @apply bg-[#C6E3E1];
-}
-
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  @apply bg-[#0D3F3B];
-}
-
-.react-calendar__tile--active {
-  @apply bg-[#0D3F3B];
-  @apply text-white;
-} */
-
-/**** overrides for the day-picker appearance ****/
+/**** overrides for the day-picker (calendar) appearance ****/
 
 .rdp-root {
   justify-items: center;

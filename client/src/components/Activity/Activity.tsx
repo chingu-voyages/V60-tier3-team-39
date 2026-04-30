@@ -1,51 +1,24 @@
 import data from "../../data/data.json";
-// import { MyCalendar } from "./CalendarTile";
 import { MyDatePicker } from "./CalendarTile";
 import DailyCounter from "./DailyCounter";
 import StreakSquares from "./Streak";
-import React, { useState, useEffect } from "react";
-// import "react-calendar/dist/Calendar.css";
-// import { DayPicker } from "react-day-picker";
-// import "react-day-picker/dist/style.css";
-// import "./calendar.css";
-
-// export function MyDayPicker() {
-//   return (
-//     <div className = "p-4 outline-blue-500 outline-solid outline-2 ">
-//       <DayPicker />
-//     </div>
-//   )
-// }
-
-// export function clickCounter(activityCount: number, buttonPressed: string) {
-//   if (buttonPressed === "minus") {
-//     return activityCount - 1;
-//   } else if (buttonPressed === "plus") {
-//     return activityCount + 1;
-//   }
-//   return activityCount;
-// }
+import { useState } from "react";
 
 const todaysActions = 18;
 const applications = 3;
 const totalActions = 21;
-const activeStreak = 9;
 
 const Activity = () => {
-  const [activities, setActivities] = useState([
-    {
-      id: crypto.randomUUID(),
-      activityName: "New Activity",
-      count: 0,
-      icon: "/images/li-connections.png",
-    },
-  ]);
+  const [activities, setActivities] = useState(data.activities);
+  const [streak] = useState(data.activeStreak);
+  const [date] = useState(new Date());
 
   function handleAddActivity() {
     setActivities((prev) => [
       ...prev,
       {
         id: crypto.randomUUID(),
+        date: new Date().toISOString().slice(0, 10),
         activityName: "New Activity",
         count: 0,
         icon: "/images/li-connections.png",
@@ -53,20 +26,42 @@ const Activity = () => {
     ]);
   }
 
+  function handleIncrementActivity(id: string, increment: number) {
+    setActivities((prev) =>
+      prev.map((activity) =>
+        activity.id === id
+          ? { ...activity, count: activity.count + increment }
+          : activity,
+      ),
+    );
+  }
+
   return (
     <>
       <div
         id="page-container"
-        className="flex flex-col md:flex-row w-full flex-1 justify-center gap-6 px-10 py-10 bg-[#F8F8FB]"
+        className="flex flex-1 flex-col md:flex-row w-full 
+        justify-center gap-6 px-2 sm:px-10 py-10 bg-[#F8F8FB]"
       >
         <div
           id="left-side"
-          className="flex flex-col h-full w-full md:w-[60%] bg-white shadow-sm rounded-3xl"
+          className="flex flex-col 
+          h-full w-full min-w-[350px] md:w-[60%] 
+          bg-white shadow-sm rounded-3xl"
         >
           <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
-            <h3 className="font-bold text-m">Thursday, April 23</h3>
+            <h3 className="font-bold text-m">
+              {date.toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+              })}
+            </h3>
           </div>
-          <DailyCounter activities={activities} />
+          <DailyCounter
+            activities={activities}
+            onIncrementActivity={handleIncrementActivity}
+          />
           <div className="flex justify-end pr-5 mt-auto mb-5 items-bottom">
             <button
               className="border border-gray-400 rounded-md p-3 mx-5 text-sm"
@@ -74,31 +69,41 @@ const Activity = () => {
             >
               + Add Field
             </button>
-            <button className="border border-gray-400 rounded-md bg-primary p-3 text-sm text-white">
+            <button
+              className="border border-gray-400 rounded-md 
+            bg-primary 
+            p-3 
+            text-sm 
+            text-white"
+            >
               Save and Generate Report
             </button>
           </div>
         </div>
         <div
           id="right-side"
-          className="w-full md:w-[40%] min-w-[350px] flex flex-col gap-6 h-full"
+          className="w-full md:w-[40%] min-w-[350px] 
+          flex flex-col 
+          gap-6 
+          h-full"
         >
           <div
             id="calendar-area"
-            className="flex-3 w-full flex items-stretch justify-stretch shadow-sm rounded-2xl bg-white"
+            className="flex flex-3 
+            w-full 
+            items-stretch justify-stretch 
+            shadow-sm rounded-3xl bg-white"
           >
             <MyDatePicker />
           </div>
           <div
             id="streak-summary-area"
-            className="flex-2 w-full shadow-sm bg-white rounded-2xl flex flex-col"
+            className="flex flex-2 flex-col w-full shadow-sm bg-white rounded-3xl"
           >
             <div id="counter-area" className="flex-4 flex flex-col w-full">
-              <h3 className="m-2 font-bold">
-                🔥Active Streak - {activeStreak} days
-              </h3>
+              <h3 className="m-2 font-bold">🔥Active Streak - {streak} days</h3>
               <div className="w-full mt-4 px-5">
-                <StreakSquares activeStreak={activeStreak} />
+                <StreakSquares activeStreak={streak} />
               </div>
               <div className="flex justify-end pr-5">
                 <p>Log activity daily to maintain your streak</p>
