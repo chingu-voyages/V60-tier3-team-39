@@ -4,9 +4,10 @@
 @theme {
 
   /* text */
+  --color-brand: #00BF63;
   --color-primary: #0D3E3B;
   --color-foreground: #242424;
-  --color-muted: #365B78;
+  --color-muted: #365b78;
   /* for borders and underlines - muted at 20% */
 
   /* background */
@@ -26,6 +27,7 @@
   --color-reject: #941919;
   --color-reject-bg: #FEE3E3;
   --color-inprog: #DA8011;
+  --color-inprog-bg: #FCF2C6;
 }
 
 @layer base {
@@ -34,4 +36,8 @@
     font-family: "Poppins", sans-serif;
     color: var(--color-foreground);
   }
+}
+
+.active-link .nav-text {
+  color: white;
 }
