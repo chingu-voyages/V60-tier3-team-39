@@ -4,6 +4,7 @@
 @theme {
 
   /* text */
+  --color-brand: #00BF63;
   --color-primary: #0D3E3B;
   --color-foreground: #242424;
   --color-muted: #365B78;
