@@ -60,50 +60,231 @@
       "company": "Stripe",
       "role": "Product Designer",
       "workType": "Remote",
-      "location": "San Francisco, CA",
+      "location": "Remote",
       "status": "Interview",
       "appliedDate": "Mar 28",
-      "salaryRange": "$68k~75k"
+      "salaryRange": "68-78k",
+      "notes": "Referral from Jake"
     },
     {
       "id": 2,
       "company": "Notion",
       "role": "UX Designer",
       "workType": "Hybrid",
-      "location": "Seattle, WA",
+      "location": "San Francisco",
       "status": "Applied",
       "appliedDate": "Mar 26",
-      "salaryRange": "$66k~72k"
+      "salaryRange": "66-72k",
+      "notes": "Reached out to PM"
     },
     {
       "id": 3,
       "company": "Linear",
       "role": "Frontend Engineer",
       "workType": "Remote",
-      "location": "Austin, TX",
+      "location": "Remote",
       "status": "Offer",
       "appliedDate": "Mar 20",
-      "salaryRange": "$83k~88k"
+      "salaryRange": "83-88k",
+      "notes": "Offer received!"
     },
     {
       "id": 4,
       "company": "Figma",
       "role": "Design Ops",
-      "workType": "On Site",
-      "location": "New York, NY",
+      "workType": "On-site",
+      "location": "New York",
       "status": "Rejected",
       "appliedDate": "Mar 18",
-      "salaryRange": "$75k~80k"
+      "salaryRange": "75-80k",
+      "notes": ""
     },
     {
       "id": 5,
+      "company": "Chase",
+      "role": "Backend Engineer",
+      "workType": "Hybrid",
+      "location": "Los Angeles",
+      "status": "Interview",
+      "appliedDate": "Mar 16",
+      "salaryRange": "98-108k",
+      "notes": "Reached out to PM"
+    },
+    {
+      "id": 6,
+      "company": "Paypal",
+      "role": "Fullstack Developer",
+      "workType": "Remote",
+      "location": "Remote",
+      "status": "Rejected",
+      "appliedDate": "Mar 15",
+      "salaryRange": "95-105k",
+      "notes": "Cold apply"
+    },
+    {
+      "id": 7,
       "company": "Vercel",
       "role": "Staff Designer",
       "workType": "Remote",
-      "location": "Chicago, IL",
+      "location": "Remote",
+      "status": "Applied",
+      "appliedDate": "Mar 15",
+      "salaryRange": "78-88k",
+      "notes": "Cold apply"
+    },
+    {
+      "id": 8,
+      "company": "Google",
+      "role": "Software Engineer",
+      "workType": "On-site",
+      "location": "Mountain View",
       "status": "Interview",
-      "appliedDate": "Mar 17",
-      "salaryRange": "$78k~86k"
+      "appliedDate": "Mar 14",
+      "salaryRange": "140-160k",
+      "notes": "Referral from Sarah"
+    },
+    {
+      "id": 9,
+      "company": "Amazon",
+      "role": "Product Manager",
+      "workType": "Hybrid",
+      "location": "Seattle",
+      "status": "Applied",
+      "appliedDate": "Mar 12",
+      "salaryRange": "120-140k",
+      "notes": "Online portal"
+    },
+    {
+      "id": 10,
+      "company": "Meta",
+      "role": "UX Researcher",
+      "workType": "Hybrid",
+      "location": "San Francisco",
+      "status": "Rejected",
+      "appliedDate": "Mar 10",
+      "salaryRange": "110-130k",
+      "notes": "Cold apply"
+    },
+    {
+      "id": 11,
+      "company": "Apple",
+      "role": "iOS Engineer",
+      "workType": "On-site",
+      "location": "Cupertino",
+      "status": "Interview",
+      "appliedDate": "Mar 8",
+      "salaryRange": "150-170k",
+      "notes": "Recruiter reached out"
+    },
+    {
+      "id": 12,
+      "company": "Netflix",
+      "role": "Data Engineer",
+      "workType": "Remote",
+      "location": "Remote",
+      "status": "Offer",
+      "appliedDate": "Mar 5",
+      "salaryRange": "160-180k",
+      "notes": "Tech screen passed"
+    },
+    {
+      "id": 13,
+      "company": "Shopify",
+      "role": "Frontend Developer",
+      "workType": "Remote",
+      "location": "Remote",
+      "status": "Applied",
+      "appliedDate": "Mar 3",
+      "salaryRange": "90-100k",
+      "notes": "Cold apply"
+    },
+    {
+      "id": 14,
+      "company": "Airbnb",
+      "role": "Product Designer",
+      "workType": "Hybrid",
+      "location": "San Francisco",
+      "status": "Rejected",
+      "appliedDate": "Mar 1",
+      "salaryRange": "120-140k",
+      "notes": ""
+    },
+    {
+      "id": 15,
+      "company": "Twitter",
+      "role": "Backend Engineer",
+      "workType": "Hybrid",
+      "location": "San Francisco",
+      "status": "Applied",
+      "appliedDate": "Feb 28",
+      "salaryRange": "130-150k",
+      "notes": "Cold apply"
+    },
+    {
+      "id": 16,
+      "company": "Spotify",
+      "role": "iOS Developer",
+      "workType": "Remote",
+      "location": "Remote",
+      "status": "Interview",
+      "appliedDate": "Feb 26",
+      "salaryRange": "110-130k",
+      "notes": "Referral from Alex"
+    },
+    {
+      "id": 17,
+      "company": "Dropbox",
+      "role": "UX Designer",
+      "workType": "Hybrid",
+      "location": "San Francisco",
+      "status": "Rejected",
+      "appliedDate": "Feb 24",
+      "salaryRange": "100-120k",
+      "notes": ""
+    },
+    {
+      "id": 18,
+      "company": "Slack",
+      "role": "Product Manager",
+      "workType": "Hybrid",
+      "location": "San Francisco",
+      "status": "Applied",
+      "appliedDate": "Feb 22",
+      "salaryRange": "115-135k",
+      "notes": "Online portal"
+    },
+    {
+      "id": 19,
+      "company": "GitHub",
+      "role": "Software Engineer",
+      "workType": "Remote",
+      "location": "Remote",
+      "status": "Offer",
+      "appliedDate": "Feb 20",
+      "salaryRange": "135-155k",
+      "notes": "Technical screen passed"
+    },
+    {
+      "id": 20,
+      "company": "Uber",
+      "role": "Backend Engineer",
+      "workType": "On-site",
+      "location": "San Francisco",
+      "status": "Interview",
+      "appliedDate": "Feb 18",
+      "salaryRange": "125-145k",
+      "notes": "Recruiter reached out"
+    },
+    {
+      "id": 21,
+      "company": "LinkedIn",
+      "role": "Data Scientist",
+      "workType": "Hybrid",
+      "location": "Sunnyvale",
+      "status": "Applied",
+      "appliedDate": "Feb 15",
+      "salaryRange": "120-140k",
+      "notes": "Cold apply"
     }
   ],
   "activities": [
