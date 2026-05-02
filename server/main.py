@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
@@ -62,6 +62,15 @@ def add_application(application: Application, db: Session = Depends(get_db)):
         location=db_app.location, status=db_app.status, appliedDate=db_app.applied_date,
         salaryRange=db_app.salary_range, notes=db_app.notes
     )
+
+@app.delete("/applications/{application_id}")
+def delete_application(application_id: int, db: Session = Depends(get_db)):
+    db_app = db.query(ApplicationModel).filter(ApplicationModel.id == application_id).first()
+    if not db_app:
+        raise HTTPException(status_code=404, detail="Application not found")
+    db.delete(db_app)
+    db.commit()
+    return {"message": "Application deleted"}
 
 @app.get("/test-db")
 def test_db(db: Session = Depends(get_db)):
