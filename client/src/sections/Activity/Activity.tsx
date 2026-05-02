@@ -30,7 +30,7 @@ const Activity = () => {
     setActivities((prev) =>
       prev.map((activity) =>
         activity.id === id
-          ? { ...activity, count: activity.count + increment }
+          ? { ...activity, count: Math.max(activity.count + increment,0) }
           : activity,
       ),
     );
@@ -62,7 +62,7 @@ const Activity = () => {
             activities={activities}
             onIncrementActivity={handleIncrementActivity}
           />
-          <div className="flex justify-end pr-5 mt-auto mb-5 items-bottom">
+          <div className="flex justify-end pr-5 mt-auto pt-3 mb-5 items-bottom">
             <button
               className="border border-gray-400 rounded-md p-3 mx-5 text-sm"
               onClick={handleAddActivity}
