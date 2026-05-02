@@ -24,8 +24,9 @@
   --color-offer: #00bf63;
   --color-offer-bg: #d2ffef;
   --color-reject: #941919;
-  --color-reject-bg: #fee3e3;
-  --color-inprog: #da8011;
+  --color-reject-bg: #FEE3E3;
+  --color-inprog: #DA8011;
+  --color-inprog-bg: #FCF2C6;
 }
 
 @layer base {
