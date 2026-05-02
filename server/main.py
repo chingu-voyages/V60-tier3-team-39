@@ -7,7 +7,15 @@ from database import Base, engine, get_db, ApplicationModel
 from sqlalchemy.orm import Session
 
 class Application(BaseModel):
+    id: int | None = None
     company: str
+    role: str | None = None
+    workType: str | None = None
+    location: str | None = None
+    status: str | None = None
+    appliedDate: str | None = None
+    salaryRange: str | None = None
+    notes: str | None = None
 
 class Applications(BaseModel):
     applications: List[Application]
@@ -31,15 +39,29 @@ app.add_middleware(
 @app.get("/applications", response_model=Applications)
 def get_applications(db: Session = Depends(get_db)):
     apps = db.query(ApplicationModel).all()
-    return Applications(applications=[Application(company=a.company) for a in apps])
+    return Applications(applications=[
+        Application(
+            id=a.id, company=a.company, role=a.role, workType=a.work_type,
+            location=a.location, status=a.status, appliedDate=a.applied_date,
+            salaryRange=a.salary_range, notes=a.notes
+        ) for a in apps
+    ])
 
 @app.post("/applications", response_model=Application)
 def add_application(application: Application, db: Session = Depends(get_db)):
-    db_app = ApplicationModel(company=application.company)
+    db_app = ApplicationModel(
+        company=application.company, role=application.role, work_type=application.workType,
+        location=application.location, status=application.status, applied_date=application.appliedDate,
+        salary_range=application.salaryRange, notes=application.notes
+    )
     db.add(db_app)
     db.commit()
     db.refresh(db_app)
-    return application
+    return Application(
+        id=db_app.id, company=db_app.company, role=db_app.role, workType=db_app.work_type,
+        location=db_app.location, status=db_app.status, appliedDate=db_app.applied_date,
+        salaryRange=db_app.salary_range, notes=db_app.notes
+    )
 
 @app.get("/test-db")
 def test_db(db: Session = Depends(get_db)):

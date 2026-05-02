@@ -16,6 +16,13 @@ class ApplicationModel(Base):
     __tablename__ = "applications"
     id = Column(Integer, primary_key=True, index=True)
     company = Column(String, nullable=False)
+    role = Column(String, nullable=True)
+    work_type = Column(String, nullable=True)
+    location = Column(String, nullable=True)
+    status = Column(String, nullable=True)
+    applied_date = Column(String, nullable=True)
+    salary_range = Column(String, nullable=True)
+    notes = Column(String, nullable=True)
 
 def get_db():
     db = SessionLocal()
