@@ -3,7 +3,7 @@ import Layout from './layout/Layout'
 import Dashboard from './sections/Dashboard'
 import Applications from './sections/applications/Applications'
 import Analytics from './sections/analytics/Analytics'
-import Activity from './sections/Activity'
+import Activity from './sections/Activity/Activity'
 
 const App = () => {
   return (
