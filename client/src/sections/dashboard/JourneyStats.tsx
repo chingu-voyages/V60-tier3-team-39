@@ -41,8 +41,6 @@ const JourneyStats = () => {
           </div>
         ))}
       </div>
-
-
     </div>
   )
 }

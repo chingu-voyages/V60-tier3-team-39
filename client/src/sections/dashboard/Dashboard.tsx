@@ -8,7 +8,6 @@ const Dashboard = () => {
         <div className="row-span-2">
           <JourneyStats />
         </div>
-
         <Activity />
       </div>
 
