@@ -27,6 +27,7 @@
   --color-reject: #941919;
   --color-reject-bg: #FEE3E3;
   --color-inprog: #DA8011;
+  --color-inprog-bg: #FCF2C6;
 }
 
 @layer base {

@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
-import { FaSun, FaMoon, FaPlus } from "react-icons/fa"
+import { FaSun, FaMoon, FaPlus, FaUser } from "react-icons/fa"
 import background from '../assets/header/background.png'
 import { MdDashboard, MdAnalytics } from "react-icons/md"
 import { PiTextAlignLeftFill } from "react-icons/pi"
 import { DiGoogleAnalytics } from "react-icons/di"
 import Button from '../components/Button'
-// import { IoIosArrowDown } from "react-icons/io"
+import { IoIosArrowDown } from "react-icons/io"
 
 
 const navLinks = [
@@ -36,7 +36,7 @@ const Header = () => {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-inprog-bg/70 border-3 border-[#FFB624] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
+            <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-inprog-bg border-3 border-[#FFB624] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
               <span className="hover:color-[#648AB0]">
                 <FaSun color='#FFB624' />
               </span>
@@ -44,8 +44,8 @@ const Header = () => {
                 <FaMoon />
               </span>
             </div>
-            <div className="p-0.75 bg-linear-to-r from-brand  to-primary rounded-full">
-              {/* <img src={val} alt="" className="w-10 lg:w-12 rounded-full" /> */}
+            <div className="bg-linear-to-r from-brand  to-primary rounded-full p-4">
+              <FaUser color="#fff" size={24} />
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Header = () => {
               <NavLink
                 key={name}
                 to={path}
-                className={({ isActive }) => isActive ? "text-brand bg-primary py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] active-link font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
+                className={({ isActive }) => isActive ? "text-white bg-primary py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] active-link font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
               >
                 <div className="flex items-center gap-1 text-xs lg:text-sm">
                   <span className="md:text-xl lg:text-2xl">
@@ -81,7 +81,7 @@ const Header = () => {
               <NavLink to='/' className='flex gap-1'>
                 <MdDashboard size={16} />
                 <span className="mr-5 nav-text">Dashboard</span>
-                {/* <span className="nav-text"><IoIosArrowDown size={16} /></span> */}
+                <span className="nav-text"><IoIosArrowDown size={16} /></span>
               </NavLink>
             </Button>
             <Button styles='gap-1 text-xs lg:text-sm bg-primary text-white'>
