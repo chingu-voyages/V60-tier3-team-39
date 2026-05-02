@@ -6,6 +6,12 @@ const titles = ['company / role', 'location', 'status', 'applied date', 'salary 
 
 const { applications } = data
 
+const colors: Record<string, string> = {
+  Interview: 'bg-interv-bg text-interv',
+  Applied: 'bg-applied-bg text-applied',
+  Offer: 'bg-offer-bg text-offer',
+  Rejected: 'bg-reject-bg text-reject',
+}
 
 const RecentApplications = () => {
   return (
@@ -20,14 +26,14 @@ const RecentApplications = () => {
         </Link>
       </div>
       <div className="w-full">
-        <div className="w-full grid grid-cols-5 px-2 gap-15 mb-2">
+        <div className="w-full grid grid-cols-5 px-2 gap-18 mb-2">
           {titles.map((title, index) => (
             <span className={`text-muted text-sm font-semibold uppercase tracking-wide ${index === 0 ? 'w-35' : ''}`}>{title}</span>
           ))}
         </div>
         <div className="">
           {applications.slice(0, 6).map(({ id, company, role, location, status, appliedDate, salaryRange }) => (
-            <div key={id} className={`grid grid-cols-5 items-center px-2 gap-15 font-medium py-4 ${id === 6 ? '' : 'border-b border-muted/20'}`}>
+            <div key={id} className={`grid grid-cols-5 items-center px-2 gap-18 font-medium py-4 ${id === 6 ? 'pb-0' : 'border-b border-muted/20'}`}>
               <div className="flex flex-col w-35 leading-7">
                 <span>{company}</span>
                 <span className="text-xs text-muted">{role}</span>
@@ -35,18 +41,13 @@ const RecentApplications = () => {
               <div className="w-28.75">
                 <span>{location}</span>
               </div>
-              <div className="flex justify-center p">
+              <div className={`flex justify-center w-24 px-3 py-1 ${colors[status]} rounded-lg`}>
                 {status}
               </div>
               <span>
                 {appliedDate}
               </span>
-              <div>
-                <span><span className="text-brand">$</span>{salaryRange}</span>
-              </div>
-
-
-
+              <span><span className="text-brand">$</span>{salaryRange}</span>
             </div>
           ))}
         </div>
