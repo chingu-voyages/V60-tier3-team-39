@@ -51,7 +51,7 @@ const Footer = () => {
           className="w-full h-full object-cover object-top"
         />
       </div>
-      <div className='relative px-4 sm:px-6 py-8 md:px-8 lg:p-10 max-w-7xl mx-auto space-y-6'>
+      <div className='relative px-4 sm:px-6 py-8 md:px-8 lg:p-10 max-w-360 mx-auto space-y-6'>
         <div className='flex flex-col md:flex-row items-center gap-2'>
           <img src={logo} alt="Stemly logo" className='w-12 md:w-13 lg:w-14' />
           <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold gradient-l text-transparent bg-clip-text bg-linear-to-r from-primary to-brand'>STEMLY</h2>
