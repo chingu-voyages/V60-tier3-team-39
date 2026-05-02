@@ -1,4 +1,4 @@
-export type ApplicationStatus = 'Interview' | 'Applied' | 'Offer' | 'Rejected'
+export type ApplicationStatus = 'Saved' | 'Interview' | 'Applied' | 'Offer' | 'Rejected'
 
 export type Application = {
   id: number
@@ -15,6 +15,7 @@ export type Application = {
 export type ViewMode = 'table' | 'kanban'
 
 export const STATUS_STYLES: Record<ApplicationStatus, string> = {
+  Saved: 'bg-saved-bg text-saved',
   Interview: 'bg-interv-bg text-interv',
   Applied: 'bg-applied-bg text-applied',
   Offer: 'bg-offer-bg text-offer',
