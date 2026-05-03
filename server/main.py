@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
-from database import Base, engine, get_db, ApplicationModel
+from database import Base, engine, init_db, get_db, ApplicationModel
 from sqlalchemy.orm import Session
 
 class Application(BaseModel):
@@ -22,8 +22,6 @@ class Applications(BaseModel):
 
 app = FastAPI()
 
-Base.metadata.create_all(bind=engine)
-
 origins = [
     "http://localhost:5173"
 ]
@@ -35,6 +33,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+init_db()
 
 @app.get("/applications", response_model=Applications)
 def get_applications(db: Session = Depends(get_db)):
