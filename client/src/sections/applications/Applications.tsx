@@ -4,24 +4,23 @@ import type { Application, ViewMode } from '../../types/application'
 import { ITEMS_PER_PAGE } from '../../types/application'
 import ApplicationsToolbar from './ApplicationsToolbar'
 import ApplicationsTable from './ApplicationsTable'
+import ApplicationsKanban from './ApplicationsKanban'
 import Pagination from './Pagination'
-// import Applications Kanban from './ApplicationsKanban'
 
 const Applications = () => {
   const [search, setSearch] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [view, setView] = useState<ViewMode>('table')
-
-  const applications = data.applications as Application[]
+  const [applicationList, setApplicationList] = useState<Application[]>(() => data.applications as Application[])
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase()
-    return applications.filter(
+    return applicationList.filter(
       (app) =>
         app.company.toLowerCase().includes(q) ||
         app.role.toLowerCase().includes(q)
     )
-  }, [search, applications])
+  }, [search, applicationList])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE))
   const paginated = filtered.slice(
@@ -32,6 +31,12 @@ const Applications = () => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value)
     setCurrentPage(1)
+  }
+
+  const handleStatusChange = (id: number, status: Application['status']) => {
+    setApplicationList((prev) =>
+      prev.map((app) => (app.id === id ? { ...app, status } : app))
+    )
   }
 
   return (
@@ -53,8 +58,7 @@ const Applications = () => {
           />
         </>
       ) : (
-        // replace null with <ApplicationsKanban applications={filtered} />
-        null
+        <ApplicationsKanban applications={filtered} onStatusChange={handleStatusChange} />
       )}
     </section>
   )
