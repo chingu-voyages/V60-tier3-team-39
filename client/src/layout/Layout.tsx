@@ -6,11 +6,11 @@ const Layout = () => {
   return (
     <div className="flex flex-col">
       <Header />
-      <main className="min-h-screen flex flex-1">
+      <main className="flex">
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </div >
   )
 }
 
