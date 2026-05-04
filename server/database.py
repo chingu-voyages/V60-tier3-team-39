@@ -24,6 +24,9 @@ class ApplicationModel(Base):
     salary_range = Column(String, nullable=True)
     notes = Column(String, nullable=True)
 
+def init_db():
+    Base.metadata.create_all(bind=engine)
+
 def get_db():
     db = SessionLocal()
     try:
