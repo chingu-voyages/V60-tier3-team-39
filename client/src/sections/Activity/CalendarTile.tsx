@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
@@ -10,9 +9,6 @@ interface MyDatePickerProps {
 export function MyDatePicker({ 
   selectedDate, 
   updateDate }: MyDatePickerProps) {
-  // const [selected, setSelected] = useState<Date>();
-
-  // function handleCalSelect ()
 
   return (
     <DayPicker

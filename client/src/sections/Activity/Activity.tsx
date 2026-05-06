@@ -30,15 +30,15 @@ const Activity = () => {
     setActivities((prev) =>
       prev.map((activity) =>
         activity.id === id
-          ? { ...activity, count: Math.max(activity.count + increment,0) }
+          ? { ...activity, count: Math.max(activity.count + increment, 0) }
           : activity,
       ),
     );
   }
 
- function updateDate(newDate: Date) {
-    setDate(newDate)
-  } 
+  function updateDate(newDate: Date) {
+    setDate(newDate);
+  }
 
   return (
     <>
@@ -50,7 +50,7 @@ const Activity = () => {
         <div
           id="left-side"
           className="flex flex-col 
-          h-full w-full min-w-[350px] md:w-[60%] 
+          h-full w-full min-w-87.5 md:w-[60%] 
           bg-white shadow-sm rounded-3xl"
         >
           <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
@@ -86,7 +86,7 @@ const Activity = () => {
         </div>
         <div
           id="right-side"
-          className="w-full md:w-[40%] min-w-[350px] 
+          className="w-full md:w-[40%] min-w-87.5 
           flex flex-col 
           gap-6 
           h-full"
@@ -98,10 +98,7 @@ const Activity = () => {
             items-stretch justify-stretch 
             shadow-sm rounded-3xl bg-white"
           >
-            <MyDatePicker
-              selectedDate={date} 
-              updateDate={updateDate}
-              />
+            <MyDatePicker selectedDate={date} updateDate={updateDate} />
           </div>
           <div
             id="streak-summary-area"
