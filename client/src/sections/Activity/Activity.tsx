@@ -11,7 +11,7 @@ const totalActions = 21;
 const Activity = () => {
   const [activities, setActivities] = useState(data.activities);
   const [streak] = useState(data.activeStreak);
-  const [date] = useState(new Date());
+  const [date, setDate] = useState<Date>(new Date());
 
   function handleAddActivity() {
     setActivities((prev) => [
@@ -35,6 +35,10 @@ const Activity = () => {
       ),
     );
   }
+
+ function updateDate(newDate: Date) {
+    setDate(newDate)
+  } 
 
   return (
     <>
@@ -94,7 +98,10 @@ const Activity = () => {
             items-stretch justify-stretch 
             shadow-sm rounded-3xl bg-white"
           >
-            <MyDatePicker />
+            <MyDatePicker
+              selectedDate={date} 
+              updateDate={updateDate}
+              />
           </div>
           <div
             id="streak-summary-area"
