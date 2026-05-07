@@ -16,8 +16,14 @@ const Dashboard = () => {
           <div id="active-streak-area" className="w-full">
             <StreakSquares />
           </div>
-          <div id="todays-activities-area"></div>
-          <div id="conversion-rates-area"></div>
+          <div
+            id="todays-activities-area"
+            className="w-full py-8 px-6 bg-white border border-muted/20 rounded-3xl"
+          ></div>
+          <div
+            id="conversion-rates-area"
+            className="w-full py-8 px-6 bg-white border border-muted/20 rounded-3xl"
+          ></div>
         </div>
       </div>
     </section>
