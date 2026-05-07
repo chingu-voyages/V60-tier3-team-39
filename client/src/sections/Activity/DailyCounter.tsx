@@ -1,3 +1,5 @@
+import { openModal, closeModal } from "./ActivityModal.tsx";
+
 interface Activity {
   id: string;
   date: string;
@@ -9,6 +11,7 @@ interface Activity {
 interface DailyCounterProps {
   activities: Activity[];
   onIncrementActivity: (id: string, increment: number) => void;
+  onEditActivity: (id: string) => void;
 }
 
 // let iconSelection = ["group", "mail", "send", "chat", "side-navigation", "person", "schedule"]
@@ -16,8 +19,9 @@ interface DailyCounterProps {
 export default function DailyCounter({
   activities,
   onIncrementActivity,
+  onEditActivity,
 }: DailyCounterProps) {
-  console.log(`in DailyCounter ${activities.map((a) => a.date)}`);
+  // console.log(`in DailyCounter ${activities.map((a) => a.date)}`);
 
   return (
     <>
@@ -47,7 +51,13 @@ export default function DailyCounter({
                     <span className="material-icons text-primary">add</span>
                   </button>
                 </div>
-                <button className=" h-8 aspect-square flex justify-center items-center outline-gray-400 rounded-md outline-solid outline-1">
+                <button
+                  className="
+                  h-8 aspect-square 
+                  flex justify-center items-center 
+                  outline-gray-400 rounded-md outline-solid outline-1"
+                  onClick={() => onEditActivity(activity.id)}
+                >
                   <span className="material-icons text-primary">edit</span>
                 </button>
               </div>

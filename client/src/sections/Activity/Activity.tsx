@@ -3,6 +3,7 @@ import { MyDatePicker } from "./CalendarTile";
 import DailyCounter from "./DailyCounter";
 import StreakSquares from "./Streak";
 import { useState } from "react";
+import { openModal, closeModal } from "./ActivityModal.tsx";
 
 const todaysActions = 18;
 const applications = 3;
@@ -10,7 +11,7 @@ const totalActions = 21;
 
 const Activity = () => {
   const [activities, setActivities] = useState(data.activities);
-  // const [streak] = useState(data.activeStreak);
+  const [modal, setModal] = useState<boolean>(false);
   const [date, setDate] = useState<Date>(new Date());
 
   function handleAddActivity() {
@@ -34,6 +35,17 @@ const Activity = () => {
           : activity,
       ),
     );
+  }
+
+  function handleEditActivity(id: string) {
+    console.log(`Edit activity: ${id}`);
+    setModal(true);
+    // openModal(id, modal);
+  }
+
+  function handleCloseModal() {
+    setModal(false);
+    // closeModal(modal);
   }
 
   function updateDate(newDate: Date) {
@@ -65,6 +77,7 @@ const Activity = () => {
           <DailyCounter
             activities={activities}
             onIncrementActivity={handleIncrementActivity}
+            onEditActivity={handleEditActivity}
           />
           <div className="flex justify-end pr-5 mt-auto pt-3 mb-5 items-bottom">
             <button
@@ -123,6 +136,24 @@ const Activity = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        id="overlay"
+        className={`fixed opacity-0 z-10 [transition:200ms_ease-in-out] 
+                  top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.5)] 
+                  ${modal ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+                  `}
+        onClick={() => handleCloseModal()}
+      >
+        <div
+          id="modal-header"
+          className={`fixed z-11 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        md:w-150 w-[75vw] md:h-50 h-[35vw]
+        rounded-3xl border border-muted/20 bg-white 
+        ${modal ? "" : ""}`}
+        >
+          <button onClick={() => handleCloseModal()}>Close</button>
         </div>
       </div>
     </>
