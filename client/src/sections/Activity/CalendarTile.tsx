@@ -1,9 +1,14 @@
-import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/style.css";
 
-export function MyDatePicker() {
-  const [selected, setSelected] = useState<Date>();
+interface MyDatePickerProps {
+  selectedDate: Date;
+  updateDate: (newDate: Date) => void;
+}
+
+export function MyDatePicker({ 
+  selectedDate, 
+  updateDate }: MyDatePickerProps) {
 
   return (
     <DayPicker
@@ -12,10 +17,13 @@ export function MyDatePicker() {
       captionLayout="dropdown"
       showOutsideDays
       animate
-      selected={selected}
-      onSelect={setSelected}
+      selected={selectedDate}
+      onSelect={(date) => {
+        if (date) updateDate(date); 
+      }}
+      required={false}
       footer={
-        selected ? `Selected: ${selected.toLocaleDateString()}` : "Pick a day."
+        selectedDate ? `Selected: ${selectedDate.toLocaleDateString()}` : "Pick a day."
       }
     />
   );

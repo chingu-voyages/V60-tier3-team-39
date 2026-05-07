@@ -10,8 +10,8 @@ const totalActions = 21;
 
 const Activity = () => {
   const [activities, setActivities] = useState(data.activities);
-  const [streak] = useState(data.activeStreak);
-  const [date] = useState(new Date());
+  // const [streak] = useState(data.activeStreak);
+  const [date, setDate] = useState<Date>(new Date());
 
   function handleAddActivity() {
     setActivities((prev) => [
@@ -30,10 +30,14 @@ const Activity = () => {
     setActivities((prev) =>
       prev.map((activity) =>
         activity.id === id
-          ? { ...activity, count: activity.count + increment }
+          ? { ...activity, count: Math.max(activity.count + increment, 0) }
           : activity,
       ),
     );
+  }
+
+  function updateDate(newDate: Date) {
+    setDate(newDate);
   }
 
   return (
@@ -46,7 +50,7 @@ const Activity = () => {
         <div
           id="left-side"
           className="flex flex-col 
-          h-full w-full min-w-[350px] md:w-[60%] 
+          h-full w-full min-w-87.5 md:w-[60%] 
           bg-white shadow-sm rounded-3xl"
         >
           <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
@@ -62,7 +66,7 @@ const Activity = () => {
             activities={activities}
             onIncrementActivity={handleIncrementActivity}
           />
-          <div className="flex justify-end pr-5 mt-auto mb-5 items-bottom">
+          <div className="flex justify-end pr-5 mt-auto pt-3 mb-5 items-bottom">
             <button
               className="border border-gray-400 rounded-md p-3 mx-5 text-sm"
               onClick={handleAddActivity}
@@ -82,7 +86,7 @@ const Activity = () => {
         </div>
         <div
           id="right-side"
-          className="w-full md:w-[40%] min-w-[350px] 
+          className="w-full md:w-[40%] min-w-87.5 
           flex flex-col 
           gap-6 
           h-full"
@@ -94,21 +98,13 @@ const Activity = () => {
             items-stretch justify-stretch 
             shadow-sm rounded-3xl bg-white"
           >
-            <MyDatePicker />
+            <MyDatePicker selectedDate={date} updateDate={updateDate} />
           </div>
           <div
             id="streak-summary-area"
             className="flex flex-2 flex-col w-full shadow-sm bg-white rounded-3xl"
           >
-            <div id="counter-area" className="flex-4 flex flex-col w-full">
-              <h3 className="m-2 font-bold">🔥Active Streak - {streak} days</h3>
-              <div className="w-full mt-4 px-5">
-                <StreakSquares activeStreak={streak} />
-              </div>
-              <div className="flex justify-end pr-5">
-                <p>Log activity daily to maintain your streak</p>
-              </div>
-            </div>
+            <StreakSquares />
             <div id="summary-area" className="flex-2 flex flex-col w-full mb-5">
               <h3 className="m-2 font-bold">Today's Summary</h3>
               <div className="flex justify-around w-full pt-3">
