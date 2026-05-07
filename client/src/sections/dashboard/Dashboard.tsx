@@ -1,6 +1,8 @@
-import Activity from "./Activity"
-import JourneyStats from "./JourneyStats"
-import RecentApplications from "./RecentApplications"
+import Activity from "./Activity";
+import StreakSquares from "../Activity/Streak";
+import JourneyStats from "./JourneyStats";
+import RecentApplications from "./RecentApplications";
+import data from "../../data/data.json";
 
 const Dashboard = () => {
   return (
@@ -10,11 +12,16 @@ const Dashboard = () => {
           <JourneyStats />
           <RecentApplications />
         </div>
-        <Activity />
+        <div className="space-y-8">
+          <div id="active-streak-area" className="w-full">
+            <StreakSquares />
+          </div>
+          <div id="todays-activities-area"></div>
+          <div id="conversion-rates-area"></div>
+        </div>
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
