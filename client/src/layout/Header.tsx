@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
 import { FaSun, FaMoon, FaPlus, FaUser } from "react-icons/fa"
-import background from '../assets/header/background.png'
+import background from '../assets/header/background.avif'
 import { MdDashboard, MdAnalytics } from "react-icons/md"
 import { PiTextAlignLeftFill } from "react-icons/pi"
 import { DiGoogleAnalytics } from "react-icons/di"
@@ -29,12 +29,14 @@ const Header = () => {
       </div>
       <nav className="relative w-full max-w-360 mx-auto p-4 md:p-6 lg:px-10 space-y-8 z-10">
         <div className="flex justify-between">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="Stemly logo" className="w-7 lg:w-8" />
-            <span className="tracking-wide font-semibold text-lg lg:text-xl uppercase text-transparent bg-clip-text bg-linear-to-r from-primary  to-brand">
-              stemly
-            </span>
-          </div>
+          <NavLink to='/' className='cursor-pointer'>
+            <div className="flex items-center gap-2">
+              <img src={logo} alt="Stemly logo" className="w-7 lg:w-8" />
+              <span className="tracking-wide font-semibold text-lg lg:text-xl uppercase text-transparent bg-clip-text bg-linear-to-r from-primary  to-brand">
+                stemly
+              </span>
+            </div>
+          </NavLink>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-inprog-bg border-3 border-[#FFB624] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
               <span className="hover:color-[#648AB0]">
