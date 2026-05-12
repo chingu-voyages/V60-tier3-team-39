@@ -41,3 +41,19 @@ def test_add_application_returns_created(client):
     assert response.status_code == 200
     assert response.json()["company"] == "CompanyA"
 
+def test_update_application_not_found(client):
+    payload = {"company": "CompanyA", "role": "Frontend Engineer", "status": "Applied"}
+    response = client.put("/applications/999", json=payload)
+    assert response.status_code == 404
+
+def test_update_application_returns_updated(client, db):
+    app = ApplicationModel(company="CompanyA", role="Frontend Engineer", status="Applied")
+    db.add(app)
+    db.commit()
+    db.refresh(app)
+
+    payload = {"company": "CompanyB", "role": "Backend Engineer", "status": "Interview"}
+    response = client.put(f"/applications/{app.id}", json=payload)
+    assert response.status_code == 200
+    assert response.json()["company"] == "CompanyB"
+
