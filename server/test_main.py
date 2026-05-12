@@ -31,3 +31,13 @@ def test_get_application_returns_one(client, db):
     assert response.status_code == 200
     assert response.json()["company"] == "CompanyA"
 
+def test_add_application_missing_required_field(client):
+    response = client.post("/applications", json={})
+    assert response.status_code == 422
+
+def test_add_application_returns_created(client):
+    payload = {"company": "CompanyA", "role": "Frontend Engineer", "status": "Applied"}
+    response = client.post("/applications", json=payload)
+    assert response.status_code == 200
+    assert response.json()["company"] == "CompanyA"
+
