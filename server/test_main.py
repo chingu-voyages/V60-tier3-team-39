@@ -57,3 +57,16 @@ def test_update_application_returns_updated(client, db):
     assert response.status_code == 200
     assert response.json()["company"] == "CompanyB"
 
+def test_delete_application_not_found(client):
+    response = client.delete("/applications/999")
+    assert response.status_code == 404
+
+def test_delete_application_returns_success(client, db):
+    app = ApplicationModel(company="CompanyA", role="Frontend Engineer", status="Applied")
+    db.add(app)
+    db.commit()
+    db.refresh(app)
+
+    response = client.delete(f"/applications/{app.id}")
+    assert response.status_code == 200
+
