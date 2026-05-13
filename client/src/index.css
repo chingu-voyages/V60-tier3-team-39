@@ -81,20 +81,11 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 11;
-    background-color: #473144;
-    height: auto;
-    width: 500px;
-    font-family: quicksand, sans-serif;
-    color: #473144;
-    font-size: .9rem;
-    max-width: 80%;
-}
-
-.modal.active {
     transform: translate(-50%, -50%) scale(1);
+    transition: 200ms ease-in-out;
+    border: 1px solid var(--muted);
+    border-color: gray;
+    border-radius: 24px;
+    z-index: 11;
+    background-color: var(--color-background);
 }

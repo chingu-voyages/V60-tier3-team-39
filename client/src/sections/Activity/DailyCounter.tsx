@@ -14,8 +14,6 @@ interface DailyCounterProps {
   onEditActivity: (id: string) => void;
 }
 
-// let iconSelection = ["group", "mail", "send", "chat", "side-navigation", "person", "schedule"]
-
 export default function DailyCounter({
   activities,
   onIncrementActivity,

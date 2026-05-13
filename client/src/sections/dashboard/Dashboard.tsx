@@ -1,4 +1,3 @@
-import Activity from "./Activity";
 import StreakSquares from "../Activity/Streak";
 import JourneyStats from "./JourneyStats";
 import RecentApplications from "./RecentApplications";
