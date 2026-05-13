@@ -15,11 +15,11 @@ const ThemeToggle = () => {
   }
 
   return (
-    <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-inprog-bg border-3 border-[#FFB624] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
+    <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-[#142230] border-3 border-[#334C65] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
       <span className="hover:color-[#648AB0]">
-        <FaSun color='#FFB624' />
+        <FaSun color='#142230' />
       </span>
-      <span className="text-white">
+      <span className="text-[#334C65]">
         <FaMoon />
       </span>
     </div>

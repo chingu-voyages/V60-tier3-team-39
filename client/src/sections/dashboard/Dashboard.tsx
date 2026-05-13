@@ -1,8 +1,6 @@
-import Activity from "./Activity";
 import StreakSquares from "../Activity/Streak";
 import JourneyStats from "./JourneyStats";
 import RecentApplications from "./RecentApplications";
-import data from "../../data/data.json";
 
 const Dashboard = () => {
   return (
@@ -13,16 +11,16 @@ const Dashboard = () => {
           <RecentApplications />
         </div>
         <div className="space-y-8">
-          <div id="active-streak-area" className="w-full">
+          <div id="active-streak-area">
             <StreakSquares />
           </div>
           <div
             id="todays-activities-area"
-            className="w-full py-8 px-6 bg-white border border-muted/20 rounded-3xl"
+            className="w-full py-8 px-6 bg-card border border-muted/10 rounded-3xl"
           ></div>
           <div
             id="conversion-rates-area"
-            className="w-full py-8 px-6 bg-white border border-muted/20 rounded-3xl"
+            className="w-full py-8 px-6 bg-card border border-muted/10 rounded-3xl"
           ></div>
         </div>
       </div>
