@@ -47,6 +47,17 @@ def get_applications(db: Session = Depends(get_db)):
         ) for a in apps
     ])
 
+@app.get("/applications/{application_id}", response_model=Application)
+def get_application(application_id: int, db: Session = Depends(get_db)):
+    db_app = db.query(ApplicationModel).filter(ApplicationModel.id == application_id).first()
+    if not db_app:
+        raise HTTPException(status_code=404, detail="Application not found")
+    return Application(
+        id=db_app.id, company=db_app.company, role=db_app.role, workType=db_app.work_type,
+        location=db_app.location, status=db_app.status, appliedDate=db_app.applied_date,
+        salaryRange=db_app.salary_range, notes=db_app.notes
+    )
+
 @app.post("/applications", response_model=Application)
 def add_application(application: Application, db: Session = Depends(get_db)):
     db_app = ApplicationModel(
@@ -57,17 +68,6 @@ def add_application(application: Application, db: Session = Depends(get_db)):
     db.add(db_app)
     db.commit()
     db.refresh(db_app)
-    return Application(
-        id=db_app.id, company=db_app.company, role=db_app.role, workType=db_app.work_type,
-        location=db_app.location, status=db_app.status, appliedDate=db_app.applied_date,
-        salaryRange=db_app.salary_range, notes=db_app.notes
-    )
-
-@app.get("/applications/{application_id}", response_model=Application)
-def get_application(application_id: int, db: Session = Depends(get_db)):
-    db_app = db.query(ApplicationModel).filter(ApplicationModel.id == application_id).first()
-    if not db_app:
-        raise HTTPException(status_code=404, detail="Application not found")
     return Application(
         id=db_app.id, company=db_app.company, role=db_app.role, workType=db_app.work_type,
         location=db_app.location, status=db_app.status, appliedDate=db_app.applied_date,
