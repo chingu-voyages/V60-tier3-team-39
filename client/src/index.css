@@ -1,43 +1,101 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* text */
-  --color-brand: #00BF63;
-  --color-primary: #0D3E3B;
-  --color-foreground: #242424;
-  --color-muted: #365b78;
-  /* for borders and underlines - muted at 20% */
 
-  /* background */
-  --color-background: #f8f8f8;
-  --card-bg: #ffffff;
+  --color-background: var(--background);
+  --color-card: var(--card);
 
-  /* activity icons */
-  --color-icon-bg: #c6e3e1;
+  --color-brand: var(--brand);
+  --color-primary: var(--primary);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-brand-secondary: var(--brand-secondary);
 
-  /* status */
-  --color-interv: #1e40af;
-  --color-interv-bg: #dbeafe;
-  --color-applied: #3a30a5;
-  --color-applied-bg: #e4e0ff;
-  --color-offer: #00bf63;
-  --color-offer-bg: #d2ffef;
-  --color-reject: #941919;
-  --color-reject-bg: #FEE3E3;
-  --color-inprog: #FD9617;
-  --color-inprog-bg: #FCF2C6;
-  --color-saved: #6f4cc9;
+  --color-background-dark: var(--background-dark);
+
+  --color-applied: var(--applied);
+  --color-applied-bg: var(--applied-bg);
+  --color-inprog: var(--inprog);
+  --color-inprog-bg: var(--inprog-bg);
+  --color-interv: var(--interv);
+  --color-interv-bg: var(--interv-bg);
+  --color-reject: var(--reject);
+  --color-reject-bg: var(--reject-bg);
+  --color-brand-bg: var(--brand-bg);
   --color-saved-bg: #efe5ff;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
 }
 
 @layer base {
-  body {
-    background-color: var(--color-background);
-    font-family: "Poppins", sans-serif;
-    color: var(--color-foreground);
+  :root {
+    --background: #0F190A;
+    --card: #111C0C;
+
+    --background-dark: #0e170a;
+
+    --brand: #01FE84;
+    --primary: #ffffff;
+    --foreground: #DCDDDB;
+    --muted: #b6bab4;
+    --brand-secondary: #00a265;
+
+    --applied: #8F85FF;
+    --applied-bg: #161135;
+    --inprog-bg: #593202;
+    --inprog: #ffea8d;
+    --interv: #6B8EFF;
+    --interv-bg: #00193a;
+    --reject: #ff7a7a;
+    --reject-bg: #350101;
+    --brand-bg: #003221;
+    --saved-bg: #efe5ff;
   }
+
+
+  .light {
+    --background: #f8f8f8;
+
+    --color-brand: #00BF63;
+    --color-primary: #0D3E3B;
+    --color-foreground: #242424;
+    --color-muted: #365b78;
+    --color-icon-bg: #c6e3e1;
+
+    --card-bg: #ffffff;
+
+
+    --color-interv: #1e40af;
+    --color-interv-bg: #dbeafe;
+    --color-applied: #3a30a5;
+    --color-applied-bg: #e4e0ff;
+    --color-offer: #00bf63;
+    --color-offer-bg: #d2ffef;
+    --color-reject: #941919;
+    --color-reject-bg: #FEE3E3;
+    --color-inprog: #FD9617;
+    --color-inprog-bg: #FCF2C6;
+    --color-saved: #6f4cc9;
+    --color-saved-bg: #efe5ff;
+  }
+
+  body {
+    @apply bg-background text-primary font-sans;
+  }
+
 }
+
+.active-link {
+  color: var(--brand);
+}
+
+.navlink {
+  color: var(-brand);
+}
+
 
 
 /**** overrides for the day-picker (calendar) appearance ****/
@@ -57,8 +115,10 @@
   --rdp-today-border-radius: var(--rdp-day_button-border-radius);
 }
 
-.rdp-months, .rdp-month, .rdp-month_grid {
-  width:100%;
+.rdp-months,
+.rdp-month,
+.rdp-month_grid {
+  width: 100%;
   max-width: 500px;
   /* aspect-ratio:square; */
 }

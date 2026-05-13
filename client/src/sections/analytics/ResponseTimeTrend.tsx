@@ -11,24 +11,24 @@ interface ResponseTimeTrendProps {
 
 const ResponseTimeTrend = ({ data }: ResponseTimeTrendProps) => {
   return (
-    <div className="bg-white rounded-xl p-5 shadow-sm h-full flex flex-col">
-      <p className="font-semibold text-gray-800 mb-0.5">Response time trend</p>
-      <p className="text-xs text-gray-400 mb-4">Average days to first reply</p>
+    <div className="bg-background rounded-xl p-5 shadow-sm h-full flex flex-col border border-muted/10">
+      <p className="text-lg font-semibold font-heading mb-0.5">Response time trend</p>
+      <p className="text-sm text-muted">Average days to first reply</p>
       <div className="flex-1">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ left: 10, right: 10, top: 10, bottom: 0 }}>
             <defs>
               <linearGradient id="trendGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="30%" stopColor="#21A59B" stopOpacity={0.5} />
-                <stop offset="70%" stopColor="#21A59B" stopOpacity={0} />
+                <stop offset="30%" stopColor="var(--color-brand-secondary" stopOpacity={0.5} />
+                <stop offset="70%" stopColor="var(--color-brand-secondary" stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis
               dataKey="week"
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 11 }}
-              padding={{ left: 10, right: 10 }}
+              tick={{ fontSize: 14, fill: 'var(--color-muted)', fontWeight: 'bold' }}
+              padding={{ left: 24, right: 24 }}
             />
             <YAxis hide />
             <Tooltip
@@ -38,11 +38,11 @@ const ResponseTimeTrend = ({ data }: ResponseTimeTrendProps) => {
             <Area
               type="monotone"
               dataKey="days"
-              stroke="#21A59B"
+              stroke="var(--color-brand-secondary"
               strokeWidth={2.5}
               fill="url(#trendGradient)"
               dot={false}
-              activeDot={{ r: 5, fill: '#21A59B' }}
+              activeDot={{ r: 5, fill: 'var(--color-brand-secondary' }}
             />
           </AreaChart>
         </ResponsiveContainer>

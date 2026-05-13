@@ -44,14 +44,14 @@ const Activity = () => {
     <>
       <div
         id="page-container"
-        className="flex flex-1 flex-col md:flex-row w-full 
-        justify-center gap-6 px-2 sm:px-10 py-10 bg-[#F8F8FB]"
+        className="max-w-360 mx-auto flex flex-1 flex-col md:flex-row w-full 
+        justify-center gap-6 px-2 sm:px-10 py-10 bg-background"
       >
         <div
           id="left-side"
           className="flex flex-col 
           h-full w-full min-w-87.5 md:w-[60%] 
-          bg-white shadow-sm rounded-3xl"
+          bg-card border border-muted/10 rounded-3xl"
         >
           <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
             <h3 className="font-bold text-m">
@@ -68,7 +68,7 @@ const Activity = () => {
           />
           <div className="flex justify-end pr-5 mt-auto pt-3 mb-5 items-bottom">
             <button
-              className="border border-gray-400 rounded-md p-3 mx-5 text-sm"
+              className="border border-muted/10 rounded-md p-3 mx-5 text-sm"
               onClick={handleAddActivity}
             >
               + Add Field
@@ -93,16 +93,16 @@ const Activity = () => {
         >
           <div
             id="calendar-area"
-            className="flex flex-3 
+            className="
             w-full 
             items-stretch justify-stretch 
-            shadow-sm rounded-3xl bg-white"
+            shadow-sm rounded-3xl bg-card border border-muted/10"
           >
             <MyDatePicker selectedDate={date} updateDate={updateDate} />
           </div>
           <div
             id="streak-summary-area"
-            className="flex flex-2 flex-col w-full shadow-sm bg-white rounded-3xl"
+            className="bg-card rounded-3xl"
           >
             <StreakSquares />
             <div id="summary-area" className="flex-2 flex flex-col w-full mb-5">

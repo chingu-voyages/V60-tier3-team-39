@@ -12,8 +12,8 @@ type Props = {
 const ApplicationsToolbar = ({ search, onSearch, view, onViewChange }: Props) => {
   return (
     <div className="flex items-center gap-3 flex-wrap">
-      <div className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 bg-white">
-        <FiSearch className="text-gray-400 shrink-0" size={15} />
+      <div className="flex items-center gap-2 border border-muted/10 rounded-lg px-4 py-2 bg-card">
+        <FiSearch className="text-muted shrink-0" size={15} />
         <input
           className="outline-none text-sm bg-transparent w-52"
           placeholder="Search companies, roles..."
@@ -22,36 +22,34 @@ const ApplicationsToolbar = ({ search, onSearch, view, onViewChange }: Props) =>
         />
       </div>
 
-      <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 bg-white text-sm text-gray-400 hover:bg-gray-50 transition-colors">
+      <button className="flex items-center gap-2 border border-muted/10 rounded-lg px-4 py-2 bg-background-dark  font-heading text-sm text-muted hover:bg-gray-50 transition-colors">
         <FiFilter className="text-gray-400 shrink-0" size={14} />
         Filter
       </button>
 
-      <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 bg-white text-sm text-gray-400 hover:bg-gray-50 transition-colors">
+      <button className="flex items-center gap-2 border border-muted/10 rounded-lg px-4 py-2 bg-background-dark text-sm text-muted font-heading hover:bg-gray-50 transition-colors">
         Location <FiChevronDown className="text-gray-400 shrink-0" size={14} />
       </button>
 
-      <button className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 bg-white text-sm text-gray-400 hover:bg-gray-50 transition-colors">
+      <button className="flex items-center gap-2 border border-muted/10 rounded-lg px-4 py-2 bg-background-dark  font-heading text-sm text-muted hover:bg-gray-50 transition-colors">
         Date <FiChevronDown className="text-gray-400 shrink-0" size={14} />
       </button>
 
       <div className="flex-1" />
 
-      <div className="flex items-center rounded-lg overflow-hidden border border-gray-300">
+      <div className="flex items-center rounded-lg overflow-hidden border border-muted/10">
         <button
           onClick={() => onViewChange('table')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${
-            view === 'table' ? 'bg-primary text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${view === 'table' ? 'bg-background-dark text-muted' : 'bg-background-dark text-brand hover:bg-gray-50'
+            }`}
         >
           <AlignJustify size={16} />
           Table
         </button>
         <button
           onClick={() => onViewChange('kanban')}
-          className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${
-            view === 'kanban' ? 'bg-primary text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
-          }`}
+          className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${view === 'kanban' ? 'bg-muted text-background' : 'bg-white text-gray-600 hover:bg-gray-50'
+            }`}
         >
           <Kanban size={16} />
           Kanban

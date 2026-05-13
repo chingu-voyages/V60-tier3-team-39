@@ -14,11 +14,19 @@ type Props = {
 const COLUMN_ORDER: ApplicationStatus[] = ['Saved', 'Applied', 'Interview', 'Offer', 'Rejected']
 
 const COLUMN_STYLES: Record<ApplicationStatus, string> = {
-  Saved: 'bg-saved-bg',
-  Applied: 'bg-interv-bg',
-  Interview: 'bg-inprog-bg',
-  Offer: 'bg-offer-bg',
+  Saved: 'bg-inprog-bg',
+  Applied: 'bg-applied-bg',
+  Interview: 'bg-interv-bg',
+  Offer: 'bg-brand-bg',
   Rejected: 'bg-reject-bg',
+}
+
+const COLUMN_HEADER_COLORS: Record<ApplicationStatus, string> = {
+  Saved: 'var(--color-inprog)',
+  Applied: 'var(--color-applied)',
+  Interview: 'var(--color-interv)',
+  Offer: 'var(--color-brand)',
+  Rejected: 'var(--color-reject)',
 }
 
 const columnId = (status: ApplicationStatus) => `column-${status}`
@@ -39,17 +47,17 @@ const KanbanCard = ({ app }: { app: Application }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`cursor-grab rounded-[10px] border border-[#D9D9D8] bg-white p-[14px] transition active:cursor-grabbing ${isDragging ? 'cursor-grabbing opacity-70' : ''}`}
+      className={`cursor-grab rounded-[10px] border border-muted/10 bg-card p-3 transition active:cursor-grabbing ${isDragging ? 'cursor-grabbing opacity-70' : ''}`}
     >
-      <div className="flex flex-col gap-[11px]">
-        <p className="text-[16px] font-bold text-black">{app.company}</p>
-        <p className="text-[14px] font-medium text-[#8898A9]">{app.role}</p>
+      <div className="flex flex-col gap-3 bg-card">
+        <p className="text-[16px] font-bold font-heading">{app.company}</p>
+        <p className="text-[14px] font-medium text-muted">{app.role}</p>
 
-        <div className="inline-flex w-fit self-start rounded-md border border-[#8898A9] px-2 py-0.5 text-[12px] font-medium text-[#8898A9]">
+        <div className="inline-flex w-fit self-start rounded-md border border-foreground/20 px-2 py-0.5 text-[12px] font-medium text-foreground]">
           {app.workType}
         </div>
 
-        <div className="flex items-center justify-between text-[12px] font-medium text-[#8898A9]">
+        <div className="flex items-center justify-between text-[12px] font-medium text-muted">
           <p className="inline-flex items-center gap-1">
             <FaLocationDot size={12} />
             {app.location}
@@ -65,16 +73,17 @@ const KanbanColumn = ({ status, apps }: { status: ApplicationStatus; apps: Appli
   const { setNodeRef } = useDroppable({ id: columnId(status) })
 
   return (
-    <section className={`min-w-[250px] flex-1 rounded-[8px] border-0 p-3 shadow-none ${COLUMN_STYLES[status]}`}>
-      <h3 className="mb-3 text-sm font-semibold text-foreground">{status}</h3>
-      <div ref={setNodeRef} className="space-y-[11px]">
+    <section className={`min-w-73.5 flex-1 rounded-lg border-0 p-6 shadow-none ${COLUMN_STYLES[status]}`}>
+      <h3 className='mb-3 text-lg font-semibold font-heading'
+        style={{ color: COLUMN_HEADER_COLORS[status] }}>{status}</h3>
+      <div ref={setNodeRef} className="space-y-3">
         <SortableContext items={apps.map((app) => String(app.id))} strategy={rectSortingStrategy}>
           {apps.map((app) => (
             <KanbanCard key={app.id} app={app} />
           ))}
         </SortableContext>
 
-        <button className="w-full rounded-[10px] border border-[#D9D9D8] p-[14px] text-left text-[12px] font-medium text-[#8898A9] transition hover:bg-white/60">
+        <button className="w-full rounded-[10px] border border-muted/40 p-3.5 text-left text-[12px] font-medium text-[#8898A9] transition cursor-pointer">
           <span className="inline-flex items-center gap-1">
             <Plus size={14} />
             Add Card

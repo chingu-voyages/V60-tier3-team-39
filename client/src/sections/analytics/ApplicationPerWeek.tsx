@@ -12,16 +12,17 @@ interface WeeklyApplicationsProps {
 
 const WeeklyApplications = ({ data, highlightWeek = 'Week 4' }: WeeklyApplicationsProps) => {
   return (
-    <div className="bg-white rounded-xl p-5 shadow-sm">
-      <p className="font-semibold text-gray-800 mb-0.5">Application per week</p>
-      <p className="text-xs text-gray-400 mb-4">Last 6 weeks</p>
+    <div className="bg-background rounded-xl p-6 shadow-sm border border-muted/10">
+      <p className="text-lg font-semibold font-heading mb-0.5">Application per week</p>
+      <p className="text-sm text-muted">Last 6 weeks</p>
       <ResponsiveContainer width="100%" height={200}>
-        <BarChart data={data} barCategoryGap="15%">
+        <BarChart data={data} barCategoryGap="15%" margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
           <XAxis
             dataKey="week"
             axisLine={false}
             tickLine={false}
-            tick={{ fontSize: 11, fill: '#9ca3af' }}
+            tick={{ fontSize: 14, fill: 'var(--color-muted)', fontWeight: 'bold' }}
+            tickMargin={12}
           />
           <Tooltip
             cursor={false}
@@ -32,7 +33,7 @@ const WeeklyApplications = ({ data, highlightWeek = 'Week 4' }: WeeklyApplicatio
             {data.map((entry) => (
               <Cell
                 key={entry.week}
-                fill={entry.week === highlightWeek ? '#0D3E3B' : '#C6E3E1'}
+                fill={entry.week === highlightWeek ? 'var(--color-brand-secondary)' : 'var(--color-foreground)'}
               />
             ))}
           </Bar>

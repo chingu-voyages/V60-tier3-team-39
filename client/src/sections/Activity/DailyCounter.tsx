@@ -24,7 +24,7 @@ export default function DailyCounter({
       <ul>
         {activities.map((activity) => (
           <li key={activity.id}>
-            <div className="flex w-auto h-20 mx-10 border-b-2 border-[#D7DEE4]">
+            <div className="flex w-auto h-20 mx-10 border-b border-muted/10">
               <div className="flex items-center ml-0 lg:ml-10 w-[80%]">
                 <div className="bg-icon-bg h-8 aspect-square flex justify-center items-center rounded-md h-1rem w-3rem">
                   <span className="material-icons text-primary">check</span>
@@ -32,7 +32,7 @@ export default function DailyCounter({
                 <p className="pl-4 font-medium">{activity.activityName}</p>
               </div>
               <div className="flex w-[35%] max-w-37.5 justify-around items-center">
-                <div className="flex w-[60%] h-8 justify-around items-center outline-gray-400 rounded-md outline-solid outline-1">
+                <div className="flex w-[60%] h-8 justify-around items-center outline-muted/10 rounded-md outline-solid outline-1">
                   <button
                     onClick={() => onIncrementActivity(activity.id, -1)}
                     className="h-full aspect-square flex items-center justify-center"
@@ -47,7 +47,7 @@ export default function DailyCounter({
                     <span className="material-icons text-primary">add</span>
                   </button>
                 </div>
-                <button className=" h-8 aspect-square flex justify-center items-center outline-gray-400 rounded-md outline-solid outline-1">
+                <button className=" h-8 aspect-square flex justify-center items-center outline-muted/10 rounded-md outline-solid outline-1">
                   <span className="material-icons text-primary">edit</span>
                 </button>
               </div>

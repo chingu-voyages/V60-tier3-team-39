@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function StreakSquares() {
   const [streak] = useState(data.activeStreak);
   return (
-    <div id="counter-area" className="flex-4 flex flex-col w-full">
+    <div id="counter-area" className="flex-4 flex flex-col w-full bg-card">
       <h3 className="m-2 font-bold">
         🔥Active Streak - {data.activeStreak} days
       </h3>
@@ -13,9 +13,8 @@ export default function StreakSquares() {
           {Array.from({ length: 30 }).map((_, index) => (
             <div
               key={index}
-              className={`w-full aspect-square rounded-sm ${
-                index < streak ? "bg-primary" : "bg-gray-300"
-              }`}
+              className={`w-full aspect-square rounded-sm ${index < streak ? "bg-primary" : "bg-gray-300"
+                }`}
             ></div>
           ))}
         </div>

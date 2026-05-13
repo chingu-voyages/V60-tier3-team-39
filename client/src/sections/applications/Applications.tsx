@@ -40,7 +40,7 @@ const Applications = () => {
   }
 
   return (
-    <section className="flex-1 p-6 flex flex-col gap-4">
+    <section className="max-w-360  mx-auto flex-1 p-10 flex flex-col gap-8">
       <ApplicationsToolbar
         search={search}
         onSearch={handleSearch}

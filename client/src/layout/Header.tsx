@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
-import { FaSun, FaMoon, FaPlus, FaUser } from "react-icons/fa"
-import background from '../assets/header/background.avif'
+import { FaPlus, FaUser } from "react-icons/fa"
+import background from '../assets/header/background.png'
 import { MdDashboard, MdAnalytics } from "react-icons/md"
 import { PiTextAlignLeftFill } from "react-icons/pi"
 import { DiGoogleAnalytics } from "react-icons/di"
 import Button from '../components/Button'
 import { IoIosArrowDown } from "react-icons/io"
+import ThemeToggle from "../components/ThemeToggle"
 
 
 const navLinks = [
@@ -24,7 +25,7 @@ const Header = () => {
         <img
           src={background}
           alt="hero background image"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover"
         />
       </div>
       <nav className="relative w-full max-w-360 mx-auto p-4 md:p-6 lg:px-10 space-y-8 z-10">
@@ -32,31 +33,24 @@ const Header = () => {
           <NavLink to='/' className='cursor-pointer'>
             <div className="flex items-center gap-2">
               <img src={logo} alt="Stemly logo" className="w-7 lg:w-8" />
-              <span className="tracking-wide font-semibold text-lg lg:text-xl uppercase text-transparent bg-clip-text bg-linear-to-r from-primary  to-brand">
+              <span className="tracking-wide font-semibold font-heading text-lg lg:text-xl uppercase text-transparent bg-clip-text bg-linear-to-r from-brand-secondary to-brand">
                 stemly
               </span>
             </div>
           </NavLink>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-inprog-bg border-3 border-[#FFB624] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
-              <span className="hover:color-[#648AB0]">
-                <FaSun color='#FFB624' />
-              </span>
-              <span className="text-white">
-                <FaMoon />
-              </span>
-            </div>
+            <ThemeToggle />
             <div className="bg-linear-to-r from-brand  to-primary rounded-full p-4">
               <FaUser color="#fff" size={24} />
             </div>
           </div>
         </div>
         <div className="space-y-1">
-          <h1 className="text-primary font-extrabold text-xl lg:text-[1.75rem]">
+          <h1 className="text-primary font-heading font-extrabold text-xl lg:text-[1.75rem]">
             Your job search is gaining momentum.
           </h1>
-          <div className="max-w-100 lg:max-w-md">
-            <p className="hidden md:block text-muted font-bold text-sm lg:text-base">
+          <div className="max-w-100 lg:max-w-105">
+            <p className="hidden md:block text-foreground font-bold text-sm lg:text-base">
               Track every application, every connection, every step ー all in one beautifully organized place.
             </p>
           </div>
@@ -67,13 +61,13 @@ const Header = () => {
               <NavLink
                 key={name}
                 to={path}
-                className={({ isActive }) => isActive ? "text-white bg-primary py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] active-link font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
+                className={({ isActive }) => isActive ? "group active-nav bg-background-dark py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
               >
                 <div className="flex items-center gap-1 text-xs lg:text-sm">
-                  <span className="md:text-xl lg:text-2xl">
+                  <span className="md:text-xl lg:text-2xl group-[.active-nav]:text-brand">
                     <Icon />
                   </span>
-                  <span className="nav-text">{name}</span>
+                  <span className="font-heading">{name}</span>
                 </div>
               </NavLink>
             ))}
@@ -86,7 +80,7 @@ const Header = () => {
                 <span className="nav-text"><IoIosArrowDown size={16} /></span>
               </NavLink>
             </Button>
-            <Button styles='gap-1 text-xs lg:text-sm bg-primary text-white'>
+            <Button styles='gap-1 text-xs lg:text-sm bg-background-dark hover:bg-background-dark/70 border border-muted/10'>
               <FaPlus size={10} />
               Add Application
             </Button>

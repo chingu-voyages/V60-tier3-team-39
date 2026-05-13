@@ -18,7 +18,7 @@ export const STATUS_STYLES: Record<ApplicationStatus, string> = {
   Saved: 'bg-saved-bg text-saved',
   Interview: 'bg-interv-bg text-interv',
   Applied: 'bg-applied-bg text-applied',
-  Offer: 'bg-offer-bg text-offer',
+  Offer: 'bg-brand-bg text-brand',
   Rejected: 'bg-reject-bg text-reject',
 }
 
