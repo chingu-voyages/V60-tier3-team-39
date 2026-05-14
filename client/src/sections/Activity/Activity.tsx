@@ -5,6 +5,7 @@ import StreakSquares from "./Streak";
 import { useState } from "react";
 
 const iconOptions = [
+  "check",
   "group",
   "mail",
   "send",
@@ -31,7 +32,7 @@ const Activity = () => {
         date: new Date().toISOString().slice(0, 10),
         activityName: "New Activity",
         count: 0,
-        icon: "/images/li-connections.png",
+        icon: "check",
       },
     ]);
   }
@@ -46,8 +47,18 @@ const Activity = () => {
     );
   }
 
-  function handleEditActivity(id: string) {
-    console.log(`Edit activity: ${id}`);
+  const [selectedIcon, setSelectedIcon] = useState("check");
+  const [showIconMenu, setShowIconMenu] = useState(false);
+  const [selectedActivityName, setSelectedActivityName] = useState("");
+  const [selectedId, setSelectedId] = useState("");
+
+  function handleEditActivity(id: string, icon: string, activityName: string) {
+    console.log(
+      `Edit activity: ${id} Icon: ${icon} ActivityName: ${activityName}`,
+    );
+    setSelectedId(id);
+    setSelectedIcon(icon);
+    setSelectedActivityName(activityName);
     setModal(true);
   }
 
@@ -55,20 +66,27 @@ const Activity = () => {
     setModal(false);
   }
 
+  function handleSubmit(e: React.SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setActivities((prev) =>
+      prev.map((activity) =>
+        activity.id === selectedId
+          ? { ...activity, activityName: selectedActivityName, icon: selectedIcon }
+          : activity,
+      ),
+    );
+    setModal(false);
+  }
+
   function updateDate(newDate: Date) {
     setDate(newDate);
   }
-
-  const [selectedIcon, setSelectedIcon] = useState("check");
-  const [showIconMenu, setShowIconMenu] = useState(false);
 
   function handleSelectIcon(iconName: string) {
     setSelectedIcon(iconName);
     setShowIconMenu(false);
   }
-  
-
-  function handleActivityEdit() {}
 
   return (
     <>
@@ -173,7 +191,8 @@ const Activity = () => {
         className={`modal 
         md:w-150 w-[75vw] md:h-60 h-[35vw]
         ${modal ? "" : "hidden"}`}
-        onSubmit={handleActivityEdit}
+        // onSubmit={() => handleSubmit(selectedIcon, selectedActivityName)}
+        onSubmit={handleSubmit}
       >
         <div className="flex justify-between items-center m-7">
           <h3 className="text-[24px] font-bold font-primary">Edit Activity</h3>
@@ -192,7 +211,7 @@ const Activity = () => {
 
         <div
           className="flex justify-between 
-        h-[68px]  mx-7"
+        h-17  mx-7"
         >
           <div className="flex flex-col justify-between">
             <h4 className="font-primary font-bold text-lg">ICON</h4>
@@ -200,29 +219,37 @@ const Activity = () => {
               id="iconButton"
               type="button"
               className="flex border border-solid border-gray-400/50 
-            h-10 w-22 rounded-xl
-            justify-between items-center pl-3"
+            h-11 w-22 rounded-xl
+            justify-between items-center p-2"
               onClick={() => setShowIconMenu(true)}
             >
               <div
                 className="bg-icon-bg h-8 aspect-square 
               flex justify-center items-center rounded-md h-1rem w-3rem"
               >
-                <span className="material-icons text-primary">check</span>
+                <span className="material-icons text-primary">
+                  {selectedIcon}
+                </span>
               </div>{" "}
               <span className="material-icons">keyboard_arrow_down</span>
             </button>
             {showIconMenu && (
-              <div className="absolute mt-2 w-22 rounded-xl border border-gray-300 bg-white shadow-md p-2 z-20">
+              <div
+                className="absolute mt-7 w-22 rounded-xl border border-gray-300 bg-white 
+              shadow-md p-2 z-20"
+              >
                 <div className="flex flex-col gap-2">
                   {iconOptions.map((iconName) => (
                     <button
                       key={iconName}
                       type="button"
-                      className="flex justify-center items-center"
+                      className="flex justify-left items-center"
                       onClick={() => handleSelectIcon(iconName)}
                     >
-                      <div className="bg-icon-bg h-8 w-8 rounded-md flex justify-center items-center">
+                      <div
+                        className="bg-icon-bg h-8 aspect-square rounded-md 
+                      flex justify-center items-center"
+                      >
                         <span className="material-icons text-primary">
                           {iconName}
                         </span>
@@ -238,8 +265,10 @@ const Activity = () => {
             <input
               className="border border-solid border-gray-400/50 
             h-10 w-100 rounded-xl text-left pl-3 text-primary font-semibold"
-              placeholder="Edit name of activity"
+              // placeholder="Edit name of activity"
               type="text"
+              value={selectedActivityName}
+              onChange={(e) => setSelectedActivityName(e.target.value)}
             />
           </div>
         </div>
