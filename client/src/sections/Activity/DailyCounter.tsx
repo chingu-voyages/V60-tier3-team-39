@@ -1,3 +1,5 @@
+import { openModal, closeModal } from "./ActivityModal.tsx";
+
 interface Activity {
   id: string;
   date: string;
@@ -9,15 +11,15 @@ interface Activity {
 interface DailyCounterProps {
   activities: Activity[];
   onIncrementActivity: (id: string, increment: number) => void;
+  onEditActivity: (id: string, icon: string, activityName: string) => void;
 }
-
-// let iconSelection = ["group", "mail", "send", "chat", "side-navigation", "person", "schedule"]
 
 export default function DailyCounter({
   activities,
   onIncrementActivity,
+  onEditActivity,
 }: DailyCounterProps) {
-  console.log(`in DailyCounter ${activities.map((a) => a.date)}`);
+  // console.log(`in DailyCounter ${activities.map((a) => a.date)}`);
 
   return (
     <>
@@ -27,7 +29,7 @@ export default function DailyCounter({
             <div className="flex w-auto h-20 mx-10 border-b-2 border-[#D7DEE4]">
               <div className="flex items-center ml-0 lg:ml-10 w-[80%]">
                 <div className="bg-icon-bg h-8 aspect-square flex justify-center items-center rounded-md h-1rem w-3rem">
-                  <span className="material-icons text-primary">check</span>
+                  <span className="material-icons text-primary">{activity.icon}</span>
                 </div>
                 <p className="pl-4 font-medium">{activity.activityName}</p>
               </div>
@@ -47,7 +49,13 @@ export default function DailyCounter({
                     <span className="material-icons text-primary">add</span>
                   </button>
                 </div>
-                <button className=" h-8 aspect-square flex justify-center items-center outline-gray-400 rounded-md outline-solid outline-1">
+                <button
+                  className="
+                  h-8 aspect-square 
+                  flex justify-center items-center 
+                  outline-gray-400 rounded-md outline-solid outline-1"
+                  onClick={() => onEditActivity(activity.id, activity.icon, activity.activityName)}
+                >
                   <span className="material-icons text-primary">edit</span>
                 </button>
               </div>
