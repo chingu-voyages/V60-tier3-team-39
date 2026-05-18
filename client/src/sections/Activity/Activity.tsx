@@ -44,17 +44,16 @@ const Activity = () => {
     <>
       <div
         id="page-container"
-        className="max-w-360 mx-auto flex flex-1 flex-col md:flex-row w-full 
-        justify-center gap-6 px-2 sm:px-10 py-10 bg-background"
+        className="max-w-360 mx-auto grid lg:grid-cols-[1.5fr_1fr] w-full lg:justify-center gap-10 p-10 bg-background"
       >
         <div
           id="left-side"
           className="flex flex-col 
-          h-full w-full min-w-87.5 md:w-[60%] 
+          h-full w-full px-6
           bg-card border border-muted/10 rounded-3xl"
         >
-          <div className="min-h-14 md:min-h-22.75 py-4 flex items-center ml-8">
-            <h3 className="font-bold text-m">
+          <div className="pt-8 pb-2 flex items-center">
+            <h3 className="font-bold text-lg font-heading">
               {date.toLocaleDateString("en-US", {
                 weekday: "long",
                 month: "long",
@@ -86,17 +85,11 @@ const Activity = () => {
         </div>
         <div
           id="right-side"
-          className="w-full md:w-[40%] min-w-87.5 
-          flex flex-col 
-          gap-6 
-          h-full"
+          className="flex flex-col h-full w-full gap-8"
         >
           <div
             id="calendar-area"
-            className="
-            w-full 
-            items-stretch justify-stretch 
-            shadow-sm rounded-3xl bg-card border border-muted/10"
+            className="w-full rounded-3xl bg-card border border-muted/10"
           >
             <MyDatePicker selectedDate={date} updateDate={updateDate} />
           </div>

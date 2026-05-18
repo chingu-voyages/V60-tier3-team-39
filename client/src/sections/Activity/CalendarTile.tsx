@@ -6,25 +6,29 @@ interface MyDatePickerProps {
   updateDate: (newDate: Date) => void;
 }
 
-export function MyDatePicker({ 
-  selectedDate, 
+export function MyDatePicker({
+  selectedDate,
   updateDate }: MyDatePickerProps) {
 
   return (
-    <DayPicker
-      mode="single"
-      navLayout="around"
-      captionLayout="dropdown"
-      showOutsideDays
-      animate
-      selected={selectedDate}
-      onSelect={(date) => {
-        if (date) updateDate(date); 
-      }}
-      required={false}
-      footer={
-        selectedDate ? `Selected: ${selectedDate.toLocaleDateString()}` : "Pick a day."
-      }
-    />
+    <div className="w-full rounded-3xl p-6">
+      <DayPicker
+        classNames={{
+          selected: "bg-background-dark text-white rounded-lg",
+          day: "rounded-lg hover:bg-muted",
+          today: "font-bold text-primary",
+        }}
+        mode="single"
+        navLayout="around"
+        captionLayout="dropdown"
+        showOutsideDays
+        animate
+        selected={selectedDate}
+        onSelect={(date) => {
+          if (date) updateDate(date);
+        }}
+        required={false}
+      />
+    </div>
   );
 }

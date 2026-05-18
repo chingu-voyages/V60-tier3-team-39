@@ -10,7 +10,7 @@ const Dashboard = () => {
           <JourneyStats />
           <RecentApplications />
         </div>
-        <div className="space-y-8">
+        <div className="flex flex-col space-y-8">
           <div id="active-streak-area">
             <StreakSquares />
           </div>
