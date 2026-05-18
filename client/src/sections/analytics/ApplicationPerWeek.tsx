@@ -12,7 +12,7 @@ interface WeeklyApplicationsProps {
 
 const WeeklyApplications = ({ data, highlightWeek = 'Week 4' }: WeeklyApplicationsProps) => {
   return (
-    <div className="bg-background rounded-xl p-6 shadow-sm border border-muted/10">
+    <div className="bg-card rounded-xl p-6 shadow-sm border border-muted/10">
       <p className="text-lg font-semibold font-heading mb-0.5">Application per week</p>
       <p className="text-sm text-muted">Last 6 weeks</p>
       <ResponsiveContainer width="100%" height={200}>

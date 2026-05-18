@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaMoon, FaSun } from "react-icons/fa"
 
 
@@ -6,16 +6,34 @@ const ThemeToggle = () => {
 
   const [isLightMode, setIsLightMode] = useState(true)
 
-  const toogleTheme = () => {
-    if (isLightMode) {
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme')
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.remove('light')
       setIsLightMode(false)
     } else {
+      document.documentElement.classList.add('light')
+      setIsLightMode(true)
+    }
+  }, [])
+
+  const toggleTheme = () => {
+
+    if (isLightMode) {
+      document.documentElement.classList.remove('light')
+      localStorage.setItem('theme', 'dark')
+      setIsLightMode(false)
+    } else {
+      document.documentElement.classList.add('light')
+      localStorage.setItem('theme', 'light')
       setIsLightMode(true)
     }
   }
 
   return (
-    <div className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-[#142230] border-3 border-[#334C65] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
+    <div 
+      onClick={toggleTheme}
+      className="flex items-center gap-4 p-1.5 md:text-lg lg:text-xl bg-[#142230] border-3 border-[#334C65] rounded-full cursor-pointer transition-colors duration-500 hover:border-[#648AB0] hover:bg-[#648AB0]/20">
       <span className="hover:color-[#648AB0]">
         <FaSun color='#142230' />
       </span>

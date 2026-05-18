@@ -49,10 +49,6 @@ export default function DailyCounter({
                     <span className="material-icons text-primary">add</span>
                   </button>
                 </div>
-<<<<<<< HEAD
-                <button className=" h-8 aspect-square flex justify-center items-center border border-muted/10 p-2 rounded-md hover:border-inprog hover:bg-inprog/20 transition-colors">
-                  <span className="material-icons text-primary hover:text-inprog ">edit</span>
-=======
                 <button
                   className="
                   h-8 aspect-square 
@@ -61,7 +57,6 @@ export default function DailyCounter({
                   onClick={() => onEditActivity(activity.id, activity.icon, activity.activityName)}
                 >
                   <span className="material-icons text-primary">edit</span>
->>>>>>> origin/development
                 </button>
               </div>
             </div>

@@ -59,27 +59,26 @@
   .light {
     --background: #f8f8f8;
 
-    --color-brand: #00BF63;
-    --color-primary: #0D3E3B;
-    --color-foreground: #242424;
-    --color-muted: #365b78;
-    --color-icon-bg: #c6e3e1;
+    --brand: #00BF63;
+    --primary: #0D3E3B;
+    --foreground: #242424;
+    --muted: #365b78;
+    --icon-bg: #c6e3e1;
 
-    --card-bg: #ffffff;
+    --card: #ffffff;
 
-
-    --color-interv: #1e40af;
-    --color-interv-bg: #dbeafe;
-    --color-applied: #3a30a5;
-    --color-applied-bg: #e4e0ff;
-    --color-offer: #00bf63;
-    --color-offer-bg: #d2ffef;
-    --color-reject: #941919;
-    --color-reject-bg: #FEE3E3;
-    --color-inprog: #FD9617;
-    --color-inprog-bg: #FCF2C6;
-    --color-saved: #6f4cc9;
-    --color-saved-bg: #efe5ff;
+    --interv: #1e40af;
+    --interv-bg: #dbeafe;
+    --applied: #3a30a5;
+    --applied-bg: #e4e0ff;
+    --offer: #00bf63;
+    --offer-bg: #d2ffef;
+    --reject: #941919;
+    --reject-bg: #FEE3E3;
+    --inprog: #FD9617;
+    --inprog-bg: #FCF2C6;
+    --saved: #6f4cc9;
+    --saved-bg: #efe5ff;
   }
 
   body {

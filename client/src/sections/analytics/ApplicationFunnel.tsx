@@ -17,7 +17,7 @@ const STAGE_COLORS: Record<string, string> = {
 
 const ApplicationFunnel = ({ data }: ApplicationFunnelProps) => {
   return (
-    <div className="bg-background rounded-xl p-6 shadow-sm h-full flex flex-col border border-muted/10">
+    <div className="bg-card rounded-xl p-6 shadow-sm h-full flex flex-col border border-muted/10">
       <p className="text-lg font-semibold font-heading mb-0.5">Applications Funnel</p>
       <div className="flex flex-col justify-evenly flex-1">
         {data.map((item) => {
