@@ -1,5 +1,3 @@
-import { openModal, closeModal } from "./ActivityModal.tsx";
-
 interface Activity {
   id: string;
   date: string;
