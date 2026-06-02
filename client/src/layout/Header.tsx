@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
 import { FaPlus, FaUser } from "react-icons/fa"
 import darkBg from '../assets/header/background.png'
-import lightBg from '../assets/header/light.png'
+import lightBg from '../assets/header/background.avif'
 import { MdDashboard, MdAnalytics } from "react-icons/md"
 import { PiTextAlignLeftFill } from "react-icons/pi"
 import { DiGoogleAnalytics } from "react-icons/di"
