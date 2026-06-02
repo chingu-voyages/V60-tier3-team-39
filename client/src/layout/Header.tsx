@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
 import { FaPlus, FaUser } from "react-icons/fa"
-import background from '../assets/header/background.png'
+import darkBg from '../assets/header/background.png'
+import lightBg from '../assets/header/light.png'
 import { MdDashboard, MdAnalytics } from "react-icons/md"
 import { PiTextAlignLeftFill } from "react-icons/pi"
 import { DiGoogleAnalytics } from "react-icons/di"
 import Button from '../components/Button'
 import { IoIosArrowDown } from "react-icons/io"
 import ThemeToggle from "../components/ThemeToggle"
+import { useEffect, useState } from "react"
 
 
 const navLinks = [
@@ -19,11 +21,23 @@ const navLinks = [
 
 const Header = () => {
 
+  const [isLight, setIsLight] = useState(document.documentElement.classList.contains('light'))
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsLight(document.documentElement.classList.contains('light'))
+    })
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <header className="relative w-full">
       <div className="absolute inset-0">
         <img
-          src={background}
+          src={isLight ? lightBg : darkBg}
           alt="hero background image"
           className="w-full h-full object-cover"
         />
@@ -61,7 +75,7 @@ const Header = () => {
               <NavLink
                 key={name}
                 to={path}
-                className={({ isActive }) => isActive ? "group active-nav bg-background-dark py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
+                className={({ isActive }) => isActive ? "group active-nav text-white bg-dark-bg py-1 pl-2 pr-2.5 lg:py-1.125 lg:pl-2 lg:pr-2.75 rounded-[10px] font-semibold" : 'text-muted font-medium hover:text-primary transition-colors duration-200'}
               >
                 <div className="flex items-center gap-1 text-xs lg:text-sm">
                   <span className="md:text-xl lg:text-2xl group-[.active-nav]:text-brand">
@@ -80,7 +94,7 @@ const Header = () => {
                 <span className="nav-text"><IoIosArrowDown size={16} /></span>
               </NavLink>
             </Button>
-            <Button styles='gap-1 text-xs lg:text-sm bg-background-dark hover:bg-background-dark/70 border border-muted/10'>
+            <Button styles='gap-1 text-xs lg:text-sm bg-dark-bg hover:bg-background-dark/70 border text-white border-muted/10'>
               <FaPlus size={10} />
               Add Application
             </Button>

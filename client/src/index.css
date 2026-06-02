@@ -12,7 +12,8 @@
   --color-muted: var(--muted);
   --color-brand-secondary: var(--brand-secondary);
 
-  --color-background-dark: var(--background-dark);
+  --color-dark-bg: var(--dark-bg);
+  --color-footer-bg: var(--footer-bg);
 
   --color-applied: var(--applied);
   --color-applied-bg: var(--applied-bg);
@@ -35,8 +36,8 @@
     --background: #0F190A;
     --card: #111C0C;
 
-    --background-dark: #0e170a;
-
+    --dark-bg: #0e170a;
+    --footer-bg: #0e170a;
     --brand: #01FE84;
     --primary: #ffffff;
     --foreground: #DCDDDB;
@@ -64,6 +65,8 @@
     --foreground: #242424;
     --muted: #365b78;
     --icon-bg: #c6e3e1;
+    --dark-bg: #0D3E3B;
+    --footer-bg: #DFF7E9;
 
     --card: #ffffff;
 
@@ -71,8 +74,7 @@
     --interv-bg: #dbeafe;
     --applied: #3a30a5;
     --applied-bg: #e4e0ff;
-    --offer: #00bf63;
-    --offer-bg: #d2ffef;
+    --brand-bg: #d2ffef;
     --reject: #941919;
     --reject-bg: #FEE3E3;
     --inprog: #FD9617;
@@ -137,14 +139,14 @@
 /************** Style setting for modals ********************/
 
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    transition: 200ms ease-in-out;
-    border: 1px solid var(--muted);
-    border-color: gray;
-    border-radius: 24px;
-    z-index: 11;
-    background-color: var(--color-background);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: 200ms ease-in-out;
+  border: 1px solid var(--muted);
+  border-color: gray;
+  border-radius: 24px;
+  z-index: 11;
+  background-color: var(--color-background);
 }
